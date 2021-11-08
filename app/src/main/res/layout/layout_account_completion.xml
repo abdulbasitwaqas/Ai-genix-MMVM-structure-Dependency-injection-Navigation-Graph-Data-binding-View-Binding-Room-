@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/account_title"
+            style="@style/title_top_largeX"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/registration_account_completion"
+            app:layout_constraintEnd_toEndOf="@+id/pBar"
+            app:layout_constraintStart_toStartOf="@+id/pBar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ProgressBar
+            android:id="@+id/pBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_90sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/alt_progressbar_breaking"
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/account_title" />
+
+        <ImageView
+            android:id="@+id/ivDropdown"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="@id/pBar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/pBar"
+            app:layout_constraintTop_toBottomOf="@id/account_title"
+            app:srcCompat="@drawable/alt_drop_down"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvProgressDigits"
+            style="@style/title_top_largeX"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="0%"
+            app:layout_constraintEnd_toEndOf="@id/ivDropdown"
+            app:layout_constraintStart_toStartOf="@id/ivDropdown"
+            app:layout_constraintTop_toBottomOf="@id/pBar" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

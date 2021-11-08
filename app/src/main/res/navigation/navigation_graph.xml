@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appNavigation"
+    app:startDestination="@id/dashBoard4">
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.jsbl.genix.views.fragments.ListFragment"
+        android:label="ListFragment">
+        <action
+            android:id="@+id/action_listFragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/actioSettings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.jsbl.genix.views.fragments.DetailFragment"
+        android:label="DetailFragment">
+        <action
+            android:id="@+id/action_detailFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="uuid"
+            app:argType="string" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.jsbl.genix.views.fragments.SettingsFragment"
+        android:label="SettingsFragment" />
+    <fragment
+        android:id="@+id/dashBoard"
+        android:name="com.jsbl.genix.views.fragments.DashBoard"
+        android:label="DashBoard" />
+    <fragment
+        android:id="@+id/ProfileManagement"
+        android:name="com.jsbl.genix.views.fragments.ProfileManagement"
+        android:label="Profile Management"
+        tools:layout="@layout/alt_fragment_profile_management" >
+        <action
+            android:id="@+id/action_completeYourProfile_to_carDetails"
+            app:destination="@id/carDetails" />
+        <action
+            android:id="@+id/action_completeYourProfile_to_feedback"
+            app:destination="@id/feedback" />
+        <action
+            android:id="@+id/action_completeYourProfile_to_areaOfInterest"
+            app:destination="@id/areaOfInterest" />
+        <action
+            android:id="@+id/action_completeYourProfile_to_insuranceYes"
+            app:destination="@id/insuranceYes" />
+        <action
+            android:id="@+id/action_ProfileManagement_to_personalDetails"
+            app:destination="@id/personalDetails" />
+        <action
+            android:id="@+id/action_ProfileManagement_to_carList"
+            app:destination="@id/carList" />
+        <action
+            android:id="@+id/action_ProfileManagement_to_share_with_friends"
+            app:destination="@id/shareWithFriendsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/carDetails"
+        android:name="com.jsbl.genix.views.fragments.CarDetails"
+        android:label="Car Details"
+        tools:layout="@layout/alt_fragment_car_details" >
+
+        <argument
+            android:name="fromRegistration"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedback"
+        android:name="com.jsbl.genix.views.fragments.Feedback"
+        android:label="Feedback"
+        tools:layout="@layout/alt_fragment_feedback" />
+    <fragment
+        android:id="@+id/myTrips"
+        android:name="com.jsbl.genix.views.fragments.MyTrips"
+        android:label="MyTrips"
+        tools:layout="@layout/alt_fragment_my_trips" >
+        <action
+            android:id="@+id/action_myTrips_to_tripDetails"
+            app:destination="@id/tripDetails" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/bottomSheetList"
+        android:name="com.jsbl.genix.views.fragments.BottomSheetList"
+        android:label="BottomSheetList"
+        tools:layout="@layout/alt_fragment_bottom_sheet_list">
+
+        <action
+            android:id="@+id/action_dashBoard4_to_tripDetails"
+            app:destination="@id/tripDetails" />
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/insuranceNo"
+        android:name="com.jsbl.genix.alt.InsuranceNo"
+        android:label="Insurance"
+        tools:layout="@layout/alt_fragment_insurance_no" />
+    <fragment
+        android:id="@+id/insuranceYes"
+        android:name="com.jsbl.genix.views.fragments.InsuranceYes"
+        android:label="Insurance"
+        tools:layout="@layout/alt_fragment_insurance_yes" />
+    <fragment
+        android:id="@+id/areaOfInterest"
+        android:name="com.jsbl.genix.views.fragments.AreaOfInterestFragment"
+        android:label="Area Of Interest" />
+    <fragment
+        android:id="@+id/personalDetails"
+        android:name="com.jsbl.genix.views.fragments.PersonalDetails"
+        android:label="PersonalDetails" />
+    <fragment
+        android:id="@+id/tripDetails"
+        android:name="com.jsbl.genix.views.fragments.TripDetailsFragment"
+        android:label="TripDetails" >
+        <argument
+            android:name="ItemTrip"
+            app:argType="com.jsbl.genix.trips.TripsDetailModel" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.jsbl.genix.views.fragments.MapFragment"
+        android:label="MapFragment" />
+    <activity
+        android:id="@+id/cardetailsActivitiy"
+        android:name="com.jsbl.genix.views.activities.ActCarDetails"
+        android:label="CardetailsActivitiy" />
+    <fragment
+        android:id="@+id/carList"
+        android:name="com.jsbl.genix.views.fragments.CarList"
+        android:label="CarList" >
+
+        <action
+            android:id="@+id/action_carList_to_carDetails"
+            app:destination="@id/carDetails" />
+        <action
+            android:id="@+id/action_carList_to_carDetails2"
+            app:destination="@id/carDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashBoard3"
+        android:name="com.jsbl.genix.views.fragments.DashBoard3"
+        android:label="DashBoard3" >
+        <action
+            android:id="@+id/action_dashBoard3_to_tripDetails"
+            app:destination="@id/tripDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/helpDetail"
+        android:name="com.jsbl.genix.views.fragments.HelpDetail"
+        android:label="HelpDetail" >
+        <argument
+            android:name="helpItem"
+            app:argType="com.jsbl.genix.model.help.HelpResponseModelItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/learnMore"
+        android:name="com.jsbl.genix.views.fragments.LearnMore"
+        android:label="LearnMore" >
+        <action
+            android:id="@+id/action_learnMore_to_helpDetail"
+            app:destination="@id/helpDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/rewards2"
+        android:name="com.jsbl.genix.views.fragments.RewardsFragment"
+        android:label="Rewards" >
+        <action
+            android:id="@+id/action_rewards2_to_tripDetails"
+            app:destination="@id/tripDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashBoard4"
+        android:name="com.jsbl.genix.views.fragments.DashBoard4"
+        android:label="DashBoard4" >
+        <action
+            android:id="@+id/action_dashBoard4_to_tripDetails"
+            app:destination="@id/tripDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/redeemFragmentDirections"
+        android:name="com.jsbl.genix.views.fragments.RedeemFragment"
+        android:label="RedeemFragment" >
+        <action
+            android:id="@+id/action_add_to_cart"
+            app:destination="@id/addToCart" />
+        <action
+            android:id="@+id/action_redeem_reward_fragment"
+            app:destination="@id/redeemRewardFragment" />
+    </fragment>
+
+
+
+
+    <fragment
+        android:id="@+id/addToCart"
+        android:name="com.jsbl.genix.views.fragments.RedeemCartFragment"
+        android:label="MyCart" />
+    <fragment
+        android:id="@+id/shareWithFriendsFragment"
+        android:name="com.jsbl.genix.views.fragments.ShareWithFriendsFragment"
+        android:label="ShareWithFriendsFragment" />
+    <fragment
+        android:id="@+id/gamificationFragment"
+        android:name="com.jsbl.genix.views.fragments.GamificationFragment"
+        android:label="GamificationFragment" />
+    <fragment
+        android:id="@+id/gamesDetailFragment"
+        android:name="com.jsbl.genix.views.fragments.GamesDetailsFragment"
+        android:label="GamesDetailsFragment" >
+    <action
+        android:id="@+id/action_games_details"
+        app:destination="@id/gamesDetailFragment" />
+    </fragment>
+
+
+
+    <fragment
+        android:id="@+id/redeemDetailsFragment"
+        android:name="com.jsbl.genix.views.fragments.RedeemDetailstFragment"
+        android:label="MyCart" />
+    <fragment
+        android:id="@+id/redeemRewardFragment"
+        android:name="com.jsbl.genix.views.fragments.RedeemRewardFragment"
+        android:label="RedeemReward" >
+    </fragment>
+    </navigation>

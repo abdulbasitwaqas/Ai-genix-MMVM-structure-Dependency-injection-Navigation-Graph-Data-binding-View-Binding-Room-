@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="regItem"
+            type="com.jsbl.genix.model.RegChatItem" />
+
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:paddingStart="@dimen/_2sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_30sdp"
+        android:paddingBottom="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:scaleType="fitCenter"
+            app:layout_constraintEnd_toStartOf="@id/data_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_reg_sender_ai"
+            app:tint="@color/gray_shade_69" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/data_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:background="@drawable/new_reg_shape_sender"
+            android:padding="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/sender_msg"
+                style="@style/reg_sender"
+                android:text="@{regItem.msg}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/camera"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/camera"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_marginStart="@dimen/_2sdp"
+                android:onClick="@{(view)->onClickListener.onClick(view,regItem.msgType)}"
+                android:visibility="@{regItem.msgType == 4 || regItem.msgType == 5 ? View.VISIBLE : View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_outline_photo_camera_24" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+ <!--       <TextView
+            android:id="@+id/mobileWarningText"
+            style="@style/label_top_mediumX"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="@string/reg_sender_mobile_warning"
+            android:textColor="@color/gray_shade_69"
+            android:visibility="@{regItem.msgType == 6 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toBottomOf="@+id/data_container" />
+-->
+
+        <TextView
+            android:id="@+id/resend"
+            style="@style/label_top_mediumX"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/new_reg_shape_sender"
+            android:gravity="center"
+            android:onClick="@{(view)->onClickListener.onClick(view,regItem.msgType)}"
+            android:padding="@dimen/_10sdp"
+            android:text="Resend"
+            android:visibility="@{regItem.msgType == 7 || regItem.msgType == 9 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/data_container"
+            app:layout_constraintTop_toBottomOf="@+id/data_container" />
+
+        <TextView
+            android:id="@+id/skip"
+            style="@style/reg_sender"
+            android:layout_width="0dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/new_reg_shape_sender"
+            android:gravity="left|center"
+            android:maxLines="2"
+            android:onClick="@{(view)->onClickListener.onClick(view,regItem.msgType)}"
+            android:padding="@dimen/_10sdp"
+            android:text="If your CNIC details are correct, click here to proceed with registration. "
+            android:textSize="@dimen/_9sdp"
+            android:visibility="@{regItem.msgType == 8 || regItem.msgType == 9 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/resend"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/icon"
+            app:layout_constraintTop_toBottomOf="@+id/data_container" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

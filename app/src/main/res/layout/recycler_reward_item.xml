@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+
+        <variable
+            name="onViewClick"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:weightSum="6">
+
+
+            <TextView
+                android:id="@+id/trips"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Trips"
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/start_point"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Start Point"
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/end_point"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="End Point"
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/time"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Time"
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/distance"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Distance"
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/score"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Points"
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/headingLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?colorOnBackground"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/bodyItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/_5sdp"
+            android:paddingBottom="@dimen/_5sdp"
+            android:weightSum="6">
+
+
+            <TextView
+                android:id="@+id/item_trips"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+
+                android:textColor="@color/gray_shade_69"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/item_start_point"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/gray_shade_69"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/item_end_point"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+
+                android:textColor="@color/gray_shade_69"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/item_time"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/gray_shade_69"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/item_distance"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/gray_shade_69"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <TextView
+                android:id="@+id/item_score"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/gray_shade_69"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/item_headingLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?colorPrimaryVariant"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </LinearLayout>
+</layout>

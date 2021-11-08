@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".alt.InsuranceNo">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainConstraintCardDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_login_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+
+       <!-- <ImageView
+            android:id="@+id/ivLogo"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:src="@drawable/alt_curvelogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>-->
+
+
+        <TextView
+            android:id="@+id/tvAccCompletion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_35sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="@string/registration_account_completion"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/left"
+            app:layout_constraintHorizontal_bias="0.68"
+            app:layout_constraintStart_toStartOf="@id/right"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/pBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_80sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:indeterminate="false"
+            android:max="100"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:progress="60"
+            android:scaleY="2"
+            android:progressDrawable="@drawable/alt_progressbar"
+            app:layout_constraintTop_toBottomOf="@id/tvAccCompletion"
+            app:layout_constraintStart_toStartOf="@+id/right"
+            app:layout_constraintEnd_toEndOf="@+id/left"/>
+
+        <ImageView
+            android:id="@+id/ivDropdown"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_40sdp"
+            app:srcCompat="@drawable/alt_drop_down"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="@id/pBar"
+            app:layout_constraintStart_toStartOf="@id/pBar"
+            app:layout_constraintTop_toBottomOf="@id/tvAccCompletion"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvProgressDigits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="@string/digits_two"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="@id/ivDropdown"
+            app:layout_constraintEnd_toEndOf="@id/ivDropdown"
+            app:layout_constraintTop_toBottomOf="@id/pBar"/>
+
+
+        <TextView
+            android:id="@+id/tvInsurance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cocomat_regular"
+            android:gravity="center_horizontal"
+            android:text="@string/insurance_details"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="@id/left"
+            app:layout_constraintStart_toStartOf="@id/right"
+            app:layout_constraintTop_toBottomOf="@id/tvProgressDigits" />
+
+
+        <TextView
+            android:id="@+id/tvInsuranceRadio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:gravity="left"
+            android:text="@string/insurance_details"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="@id/left"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="@id/right"
+            app:layout_constraintTop_toBottomOf="@id/tvInsurance" />
+
+
+        //radioButtons
+        <LinearLayout
+            android:id="@+id/radioLinear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:gravity="left"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@id/left"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/right"
+            app:layout_constraintTop_toBottomOf="@id/tvInsuranceRadio">
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:buttonTint="@color/dark_cerulean"
+                    android:fontFamily="@font/cocomat_regular"
+                    android:text="@string/yes"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+
+                <RadioButton
+                    android:id="@+id/radioNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/cocomat_regular"
+                    android:buttonTint="@color/dark_cerulean"
+                    android:text="@string/no"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp" />
+
+            </RadioGroup>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tvReason"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:gravity="left"
+            android:text="@string/insurance_details"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintEnd_toEndOf="@id/left"
+            app:layout_constraintHorizontal_bias="0.52"
+            app:layout_constraintStart_toStartOf="@id/right"
+            app:layout_constraintTop_toBottomOf="@id/radioLinear"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@drawable/alt_edittext_background"
+            app:layout_constraintEnd_toEndOf="@id/left"
+            app:layout_constraintStart_toStartOf="@id/right"
+            app:layout_constraintTop_toBottomOf="@id/tvReason">
+
+            <Spinner
+                android:id="@+id/spinnerInsurance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/btnFeedbackNo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_60sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_60sdp"
+            android:background="@drawable/alt_button_background"
+            android:padding="@dimen/_2sdp"
+            android:drawableEnd="@drawable/ic_login_next_icon"
+            android:drawablePadding="@dimen/_2sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="@string/alt_next"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/right"
+            app:layout_constraintStart_toStartOf="@id/left"
+            app:layout_constraintTop_toBottomOf="@id/container"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="regItem"
+            type="com.jsbl.genix.model.RegChatItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:paddingStart="@dimen/_40sdp"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingEnd="@dimen/_27sdp"
+        android:paddingBottom="@dimen/_5sdp">
+
+        <TextView
+            android:id="@+id/planMessage"
+            style="@style/label_black_mediumX"
+            android:background="@drawable/new_reg_shape_receiver"
+            android:padding="@dimen/_10sdp"
+            android:text="@{regItem.msg}"
+            android:visibility="@{regItem.msgType == 1 || regItem.msgType == 10 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cnic_front" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfile"
+            style="@style/login_profile_im3"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:profileImage='@{regItem.msgType == 2 ? regItem.msg:""}'
+            android:src="@drawable/ic_login_profile_avatar"
+            android:visibility="@{regItem.msgType == 2 ? View.VISIBLE : View.GONE}"
+            app:civ_border_color="?colorPrimaryVariant"
+            app:civ_border_width="@dimen/profile_im_stroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/cnic_front"
+            style="@style/login_profile_im3"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:cnicImage='@{regItem.msgType == 10 ? regItem.cnicImages[0]:""}'
+            android:visibility="@{regItem.msgType == 10 ? View.VISIBLE : View.GONE}"
+            app:civ_border_color="?cmBackground"
+            app:civ_border_width="@dimen/profile_im_stroke"
+            app:layout_constraintEnd_toStartOf="@id/cnic_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_outline_image_24" />
+
+        <ImageView
+            android:id="@+id/cnic_back"
+            style="@style/login_profile_im3"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:cnicImage='@{regItem.msgType == 10 ? regItem.cnicImages[1]:""}'
+            android:visibility="@{regItem.msgType == 10 ? View.VISIBLE : View.GONE}"
+            app:civ_border_color="?cmBackground"
+            app:civ_border_width="@dimen/profile_im_stroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_outline_image_24" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPasswordLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/new_reg_shape_receiver"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:visibility="@{regItem.msgType == 3 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/cmPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPassword"
+                style="@style/reg_et_ob_mediumX"
+                android:text="@{regItem.msg}" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- <ProgressBar
+             android:layout_width="@dimen/_40sdp"
+             android:layout_height="@dimen/_40sdp"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

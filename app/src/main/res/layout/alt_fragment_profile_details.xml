@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+        <variable
+            name="customer"
+            type="com.jsbl.genix.model.registration.CustomerX" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:background="@color/black"
+        tools:context=".views.fragments.CarDetails">
+
+        <include
+            android:id="@+id/action_bar_custom"
+            layout="@layout/action_bar_custom"
+            app:layout_constraintBottom_toTopOf="@+id/frame"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onClickListener="@{onClickListener}"
+            app:titleName="@{@string/personal_details}" />
+
+
+        <ScrollView
+            android:id="@+id/frame"
+            style="@style/below_action_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar_custom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/bottom_padding">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivProfile"
+                    style="@style/login_profile_im2"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                    android:profileImage='@{customer !=null ? customer.profileImagePath : "" }'
+                    android:src="@drawable/ic_login_profile_avatar"
+                    app:civ_border_color="?cmBackground"
+                    app:civ_border_width="@dimen/profile_im_stroke" />
+
+
+                <TextView
+                    android:id="@+id/userNameTV"
+                    android:layout_width="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="4dp"
+                    android:gravity="center"
+                    style="@style/ti_et_op_mediumX"/>
+
+
+                //Name
+
+                <include
+                    android:id="@+id/edName"
+                    layout="@layout/edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/home_name}"
+                    app:editMaxLength='@{100}'
+                    app:editPlaceHolder='@{@string/home_name}'
+                    app:layout_constraintBottom_toTopOf="@id/edMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                    app:text='@{customer !=null ? customer.name : ""}' />
+
+
+                //mobile
+
+                <include
+                    android:id="@+id/edMobile"
+                    layout="@layout/edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/mobile_number}"
+                    app:editPlaceHolder='@{@string/login_number_hint}'
+                    app:layout_constraintBottom_toTopOf="@id/edEmail"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edName"
+                    app:text='@{customer !=null ? customer.phone : ""}' />
+
+                //registration
+
+                <include
+                    android:id="@+id/edEmail"
+                    layout="@layout/edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/email}"
+                    app:editMaxLength='@{100}'
+                    app:editPlaceHolder='@{@string/reg_hint_email}'
+                    app:layout_constraintBottom_toTopOf="@id/cnic"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edMobile"
+                    app:text='@{customer !=null ? customer.email : ""}' />
+                //registration
+
+
+                <!--        <include
+                            android:id="@+id/edUserName"
+                            layout="@layout/edit_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            app:editHint="@{@string/userName}"
+                            app:editMaxLength='@{100}'
+                            app:editPlaceHolder='@{@string/userName}'
+                            app:layout_constraintBottom_toTopOf="@id/cnic"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/edMobile"
+                            app:text='@{customer !=null ? customer.email : ""}' />
+        -->
+                //color
+
+                <include
+                    android:id="@+id/cnic"
+                    layout="@layout/edit_layout_uneditable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/CNIC}"
+                    app:editPlaceHolder='@{@string/reg_cnic_hint}'
+                    app:layout_constraintBottom_toTopOf="@id/spinner_reason"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edEmail"
+                    app:text='@{customer !=null ? customer.cNIC : ""}' />
+
+
+                <include
+                    android:id="@+id/dob"
+                    layout="@layout/edit_layout_uneditable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/reg_dob}"
+                    app:editPlaceHolder='@{@string/reg_dob}'
+                    app:layout_constraintBottom_toTopOf="@id/spinner_reason"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edEmail"
+                    app:text='@{customer !=null ? customer.dOB : ""}' />
+
+                <include
+                    android:id="@+id/gender"
+                    layout="@layout/edit_layout_uneditable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/reg_gender}"
+                    app:editPlaceHolder='@{@string/reg_gender}'
+                    app:layout_constraintBottom_toTopOf="@id/spinner_reason"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edEmail"
+                    app:text='@{customer !=null ? customer.gender : ""}' />
+
+                <!--
+
+                                    <EditText
+                                        android:id="@+id/maritalStatus"
+                                        style="@style/et_op_light"
+                                        android:layout_marginStart="@dimen/_20sdp"
+                                        android:layout_marginTop="@dimen/_5sdp"
+                                        android:layout_marginEnd="@dimen/_20sdp"
+                                        android:editable="false"
+                                        android:inputType="text"
+                                        android:maxLength="40"
+                                        android:text='@{customer !=null ? customer.maritalStatus : ""}'
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/tvMarital" />
+
+                -->
+
+                <!--  <include
+                      android:id="@+id/spinner_reason"
+                      layout="@layout/edit_layout_spinner"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginTop="@dimen/_10sdp"
+                      app:editHint="@{@string/reg_marital_status}"
+                      app:layout_constraintBottom_toTopOf="@id/btnNextCarDetails"
+                      app:layout_constraintEnd_toEndOf="parent"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toBottomOf="@+id/cnic" />-->
+
+                <Button
+                    android:id="@+id/btnNextCarDetails"
+                    style="@style/login_bt_mediumX"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                    android:text="@string/submit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spinner_reason" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

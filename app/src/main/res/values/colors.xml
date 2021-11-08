@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light Colors-->
+    <color name="cmBackground">#fafafa</color>
+    <color name="cmBackground_cc">#ccfafafa</color>
+    <color name="cmSurface">#fbfbfb</color>
+    <color name="cmError">#a00037</color>
+    <color name="cmPrimary">@color/black</color>
+    <color name="cmPrimaryD">@color/black</color>
+    <color name="cmPrimaryV">#EEEEEE</color>
+    <color name="cmPrimaryV2">#44B1FF</color>
+    <color name="cmPrimaryV2_55">#5544B1FF</color>
+    <color name="cmPrimary_aa">#AA13477e</color>
+    <color name="cmPrimary_80">#8013477e</color>
+    <color name="cmPrimary_55">#5513477e</color>
+    <color name="cmPrimary_10">#1113477e</color>
+    <color name="cmSecondary">#FFCB47</color>
+    <color name="cmSecondaryV">#Fca700</color>
+    <color name="cmSecondary_aa">#AAFFCB47</color>
+    <color name="cmSecondary_80">#80FFCB47</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+    <color name="cmOnBackground">@color/cmPrimary</color>
+    <color name="cmOnSurface">@color/black</color>
+    <color name="cmOnError">@color/cmBackground</color>
+    <color name="cmOnPrimary">@color/cmBackground</color>
+    <color name="cmOnSecondary">@color/cmBackground</color>
+
+
+    <!-- Dark Colors-->
+    <color name="cmBackgroundDark">#1E1E1E</color>
+    <color name="cmBackgroundDark_cc">#cc1E1E1E</color>
+    <color name="cmSurfaceDark">#292929</color>
+    <color name="cmErrorDark">#a00037</color>
+    <color name="cmPrimaryDark">#1492E6</color>
+    <color name="cmPrimaryDarkD">#0C5587</color>
+    <color name="cmPrimaryDarkV">#048CE6</color>
+    <color name="cmPrimaryDark_aa">#AA1492E6</color>
+    <color name="cmPrimaryDark_80">#801492E6</color>
+    <color name="cmPrimaryDark_55">#551492E6</color>
+    <color name="cmPrimaryDark_10">#111492E6</color>
+    <color name="cmSecondaryDark">#F564FF</color>
+    <color name="cmSecondaryDarkV">#F349FF</color>
+    <color name="cmSecondaryDark_aa">#AAF564FF</color>
+    <color name="cmSecondaryDark_80">#80F564FF</color>
+
+    <color name="cmOnBackgroundDark">#fafafa</color>
+    <color name="cmOnSurfaceDark">#F7F7F7</color>
+    <color name="cmOnErrorDark">#a00037</color>
+    <color name="cmOnPrimaryDark">#1492E6</color>
+    <color name="cmOnSecondaryDark">#F564FF</color>
+
+    <!--Other colors-->
+
+    <color name="white">#ffffff</color>
+    <color name="white_74">#74FFFFFF</color>
+    <color name="white_66">#66FFFFFF</color>
+    <color name="progress_green">#00DC9A</color>
+    <color name="progress_primaryV2">@color/cmPrimaryV2</color>
+    <color name="progress_yellow">#FFC83D</color>
+    <color name="progress_red">#FF705D</color>
+    <color name="progress_blue">#43A9B5</color>
+    <color name="progress_white_83">#FFFFFFE3</color>
+
+    <color name="black">#000000</color>
+    <color name="black_ee">#ee000000</color>
+    <color name="package_unselected_back">#eee</color>
+    <color name="package_unselected_stroke">#dfdddd</color>
+    <color name="package_unselectedDark_back">#262626</color>
+    <color name="package_unselectedDark_stroke">#373737</color>
+
+    <color name="gray_shade_69">#696969</color>
+    <color name="gray_shade_c1">#c1c1c1</color>
+    <color name="gray_shade_e8">#e8e8e8</color>
+    <color name="gray_shade_a6">#a6a6a6</color>
+
+    <color name="frontalAdjust">#838383</color>
+    <color name="golden">#FFC107</color>
+    <color name="newred">#3395ff</color>
+    <array name="colors_rgbfragment">
+        <item>@color/golden</item>
+    </array>
+    <color name="transparent">#00000000</color>
+    <color name="drawable_gray">#707070</color>
+
+    <attr name="cmBackground" format="color" />
+    <attr name="cmBackground_cc" format="color" />
+    <attr name="cmBackground_cc_transparent" format="color" />
+    <attr name="colorOnBackground_55" format="color" />
+    <attr name="colorOnBackground_80" format="color" />
+    <attr name="package_unselected_back" format="color" />
+    <attr name="package_unselected_stroke" format="color" />
+    <attr name="colorPrimaryVariant" format="color" />
+    <attr name="colorPrimaryVariant2" format="color" />
+    <!-- <attr name="cmBackground" format="color" />
+     <attr name="cmBackground" format="color" />-->
+
+
+    <color name="seekbar_green_dark">#009a0b</color>
+    <color name="seekbar_green_light">#00c448</color>
+    <color name="seekbar_maroon_light">#830044</color>
+    <color name="seekbar_maroon_dark">#33001b</color>
+    <color name="seekbar_green_gradient">#44dec5</color>
+    <color name="seekbar_blue_gradient">#4ebcfa</color>
+    <color name="seekbar_acc_green_light">#06B2BB </color>
+    <color name="seekbar_acc_blue_light">#4ebcfa</color>
+
+
+<!--    Ibras Colors-->
+    <color name="dark_cerulean">#13477E</color>
+    <color name="malibu">#4EBCE6</color>
+    <color name="cerulean">#113F70</color>
+    <color name="orange">#FFA700</color>
+    <color name="iris_blue">#06B2BB</color>
+    <color name="tangaroa">#0A243F</color>
+    <color name="green">#32CD32</color>
+    <color name="genix_default_progress_bar">#EAF1F3</color>
+
+
+    <color name="line_selected">#E91E63</color>
+    <color name="line_focused">#3F51B5</color>
+    <color name="line_default">#C5CAE9</color>
+    <color name="blue_selector_color">#4CB5FF</color>
+    <color name="bg_screen">#F1F1F1</color>
+    <color name="amber">#FFBF00</color>
+
+    //scratch card color
+    <color name="scratch_start_gradient">#e5e5e5</color>
+    <color name="scratch_end_gradient">#cccccc</color>
+    <color name="red">#FF0000</color>
+
+
+</resources>

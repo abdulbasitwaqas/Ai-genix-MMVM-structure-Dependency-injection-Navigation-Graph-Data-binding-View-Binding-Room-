@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".views.fragments.ShareWithFriendsFragment">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+        <!--app:layout_constraintBottom_toTopOf="@+id/frame"-->
+
+        <include
+            android:id="@+id/action_bar_custom"
+            layout="@layout/action_bar_custom"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onClickListener="@{onClickListener}"
+            app:titleName="@{@string/alt_share_with_friends}" />
+
+        <ImageView
+            android:id="@+id/ivShareWithFriends"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_share_friends"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar_custom" />
+    <Button
+        android:id="@+id/btnShare"
+        style="@style/login_bt_mediumX"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+        android:text="@string/share_now"
+        android:layout_marginBottom="@dimen/_40sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+         />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

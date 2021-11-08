@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/rewards2"
+            android:icon="@drawable/new_ic_main_bot_nav_gift"
+            android:iconTint="@color/white"
+            android:title="@string/alt_rewards" />
+
+
+        <item
+            android:id="@+id/dashBoard4"
+            android:icon="@drawable/new_ic_main_bot_nav_chartmain"
+            android:iconTint="@color/white"
+            android:title="@string/alt_score" />
+
+
+        <item
+            android:id="@+id/redeemFragmentDirections"
+            android:icon="@drawable/new_ic_main_bot_nav_walletmain"
+            android:iconTint="@color/white"
+            android:title="@string/alt_redeem" />
+
+    </group>
+
+</menu>

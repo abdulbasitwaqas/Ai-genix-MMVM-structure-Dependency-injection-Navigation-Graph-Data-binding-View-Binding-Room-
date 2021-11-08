@@ -1,0 +1,35 @@
+<resources>
+
+    <dimen name="textSmall">@dimen/_6sdp</dimen>
+    <dimen name="textSmallX">@dimen/_8sdp</dimen>
+    <dimen name="textMedium">@dimen/_10sdp</dimen>
+    <dimen name="textMediumX">@dimen/_11sdp</dimen>
+    <dimen name="textLarge">@dimen/_13sdp</dimen>
+    <dimen name="textLargeX">@dimen/_16sdp</dimen>
+    <dimen name="textLargeXX">@dimen/_18sdp</dimen>
+    <dimen name="textLargeXXX">@dimen/_22sdp</dimen>
+
+    <dimen name="et_cornerRadius">@dimen/_5sdp</dimen>
+    <dimen name="et_marginStart">@dimen/_10sdp</dimen>
+    <dimen name="et_marginEnd">@dimen/_10sdp</dimen>
+    <dimen name="et_marginTop">@dimen/_10sdp</dimen>
+    <dimen name="et_marginBottom">@dimen/_10sdp</dimen>
+    <dimen name="et_margin">@dimen/_10sdp</dimen>
+
+    <dimen name="bt_padding">@dimen/_10sdp</dimen>
+    <dimen name="resend_btn_padding">@dimen/_2sdp</dimen>
+    <dimen name="welcome_bt_radius">@dimen/_15sdp</dimen>
+    <dimen name="max_radius">@dimen/_50sdp</dimen>
+    <dimen name="profile_im_stroke">@dimen/_2sdp</dimen>
+
+    <!--    for bottom nav action bar and anchored view-->
+    <dimen name="bottom_padding">@dimen/_20sdp</dimen>
+    <dimen name="top_translation">-20dp</dimen>
+    <dimen name="anchored_elevation">@dimen/_10sdp</dimen>
+
+    <dimen name="otp_view_item_size">48dp</dimen>
+    <dimen name="otp_view_item_radius">5dp</dimen>
+    <dimen name="otp_view_item_spacing">5dp</dimen>
+    <dimen name="otp_view_item_line_width">2dp</dimen>
+    <dimen name="otp_view_cursor_width">2dp</dimen>
+</resources>

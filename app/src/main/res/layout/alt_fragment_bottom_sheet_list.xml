@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+        <variable
+            name="title"
+            type="String" />
+
+        <variable
+            name="customer"
+            type="com.jsbl.genix.model.registration.CustomerX" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorPrimaryVariant">
+
+        <ImageView
+            android:id="@+id/minimizeImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/ic_baseline_minimize_24"
+            app:tint="?colorOnBackground" />
+
+        <TextView
+            android:id="@+id/bottom_caption"
+            style="@style/label_tob_large"
+            android:layout_width="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="Latest 5 Trips"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/minimizeImage" />
+
+
+        <TextView
+            android:id="@+id/see_more"
+            style="@style/label_tob_medium"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:maxLines="1"
+            android:text="@string/see_more"
+            android:textColor="@color/gray_shade_69"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_caption"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tripListRV"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_18sdp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_caption"
+            tools:itemCount="5"
+            android:visibility="visible"
+            tools:listitem="@layout/recycler_trip_item_dashboard" />
+
+        <TextView
+            android:id="@+id/tripListTV"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_18sdp"
+            android:gravity="center"
+            android:text="@string/no_trips_record_found"
+            android:textColor="@color/gray_shade_69"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bottom_caption"
+            tools:listitem="@layout/recycler_trip_item_dashboard" />
+        <TextView
+            android:id="@+id/no_item_found"
+            style="@style/label_tob_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_190sdp"
+            android:maxLines="2"
+            android:gravity="center"
+            android:text="@string/no_item_found"
+            android:textColor="@color/gray_shade_69"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:indeterminateTint="?attr/colorPrimary"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

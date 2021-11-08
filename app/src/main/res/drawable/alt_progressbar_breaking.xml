@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="25dp"/>
+            <solid android:color="@color/genix_default_progress_bar"/>
+        </shape>
+    </item>
+
+    <item android:id="@android:id/progress"
+      >
+
+        <scale android:scaleWidth="100%">
+            <shape>
+                <corners android:radius="8dp"/>
+                <gradient
+                    android:endColor="@color/seekbar_blue_gradient"
+                    android:startColor="@color/seekbar_green_gradient"
+                    />
+            </shape>
+        </scale>
+    </item>
+</layer-list>

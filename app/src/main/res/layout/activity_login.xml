@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?cmBackground"
+        tools:context=".views.activities.ActLogin">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/back"
+            style="@style/fab_style"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            app:elevation="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:pressedTranslationZ="12dp"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+
+        <TextView
+            android:id="@+id/tvLogin"
+            style="@style/login_tob_largeXXX"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:text="@string/login_label"
+            app:layout_constraintBottom_toTopOf="@id/edMobile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!--<EditText
+            android:id="@+id/edMobile"
+            style="@style/et_op_light"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:hint="@string/reg_hint_number"
+            android:inputType="phone"
+            android:maxLength="50"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvMobileNumber" />
+-->
+        <include
+            android:id="@+id/edMobile"
+            layout="@layout/edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:editHint="@{@string/login_enter_user_name}"
+            app:editMaxLength='@{50}'
+            app:layout_constraintBottom_toTopOf="@id/edPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <include
+            android:id="@+id/edPassword"
+            layout="@layout/edit_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:editHint="@{@string/reg_pass}"
+            app:editMaxLength='@{100}'
+            app:editPlaceHolder="@{@string/reg_pass}"
+            app:layout_constraintBottom_toTopOf="@id/forgetPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edMobile" />
+
+
+        <TextView
+            android:id="@+id/forgetPassword"
+            style="@style/label_tob_mediumX"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/reg_forgot_pass"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edPassword" />
+
+        <Button
+            android:id="@+id/btnNext"
+            style="@style/login_bt_mediumX"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/login_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/forgetPassword" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

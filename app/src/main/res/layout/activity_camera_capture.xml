@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".views.activities.ActCaptureCamera">
+
+
+
+
+        <!-- <SurfaceView
+             android:id="@+id/surfaceView"
+             android:layout_width="@dimen/_230sdp"
+             android:layout_height="@dimen/_230sdp"
+             android:layout_marginTop="@dimen/_50sdp"
+             android:background="@drawable/ic_capture_pic_dotted_circle"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/title" />-->
+
+
+            <com.otaliastudios.cameraview.CameraView
+                android:id="@+id/cameraView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:keepScreenOn="true"
+                app:cameraAudio="off"
+                app:cameraAutoFocusMarker="@string/cameraview_default_autofocus_marker"
+                app:cameraEngine="camera2"
+                app:cameraExperimental="true"
+                app:cameraFacing="front"
+                app:cameraFlash="auto"
+                app:cameraGestureLongTap="none"
+                app:cameraGesturePinch="zoom"
+                app:cameraGestureScrollHorizontal="filterControl1"
+                app:cameraGestureScrollVertical="exposureCorrection"
+                app:cameraGestureTap="autoFocus"
+                app:cameraGrid="off"
+                app:cameraMode="picture"
+                app:cameraPlaySounds="true"
+                app:cameraPreview="glSurface"
+                app:layout_constraintCircleRadius="@dimen/_100sdp">
+                <!--<com.otaliastudios.cameraview.CameraView
+                    android:layout_width="@dimen/_230sdp"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:layout_height="@dimen/_230sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    app:cameraPictureSizeMinWidth="@integer/picture_min_width"
+                    app:cameraPictureSizeMinHeight="@integer/picture_min_height"
+                    app:cameraPictureSizeMaxWidth="@integer/picture_max_width"
+                    app:cameraPictureSizeMaxHeight="@integer/picture_max_height"
+                    app:cameraPictureSizeMinArea="@integer/picture_min_area"
+                    app:cameraPictureSizeMaxArea="@integer/picture_max_area"
+                    app:cameraPictureSizeSmallest="false|true"
+                    app:cameraPictureSizeBiggest="false|true"
+                    app:cameraPictureSizeAspectRatio="@string/video_ratio"
+                    app:cameraVideoSizeMinWidth="@integer/video_min_width"
+                    app:cameraVideoSizeMinHeight="@integer/video_min_height"
+                    app:cameraVideoSizeMaxWidth="@integer/video_max_width"
+                    app:cameraVideoSizeMaxHeight="@integer/video_max_height"
+                    app:cameraVideoSizeMinArea="@integer/video_min_area"
+                    app:cameraVideoSizeMaxArea="@integer/video_max_area"
+                    app:cameraVideoSizeSmallest="false|true"
+                    app:cameraVideoSizeBiggest="false|true"
+                    app:cameraVideoSizeAspectRatio="@string/video_ratio"
+                    app:cameraSnapshotMaxWidth="@integer/snapshot_max_width"
+                    app:cameraSnapshotMaxHeight="@integer/snapshot_max_height"
+                    app:cameraFrameProcessingMaxWidth="@integer/processing_max_width"
+                    app:cameraFrameProcessingMaxHeight="@integer/processing_max_height"
+                    app:cameraFrameProcessingFormat="@integer/processing_format"
+                    app:cameraFrameProcessingPoolSize="@integer/processing_pool_size"
+                    app:cameraFrameProcessingExecutors="@integer/processing_executors"
+                    app:cameraVideoBitRate="@integer/video_bit_rate"
+                    app:cameraAudioBitRate="@integer/audio_bit_rate"
+                    app:cameraGestureTap="none|autoFocus|takePicture"
+                    app:cameraGestureLongTap="none|autoFocus|takePicture"
+                    app:cameraGesturePinch="none|zoom|exposureCorrection|filterControl1|filterControl2"
+                    app:cameraGestureScrollHorizontal="none|zoom|exposureCorrection|filterControl1|filterControl2"
+                    app:cameraGestureScrollVertical="none|zoom|exposureCorrection|filterControl1|filterControl2"
+                    app:cameraEngine="camera1|camera2"
+                    app:cameraPreview="glSurface|surface|texture"
+                    app:cameraPreviewFrameRate="@integer/preview_frame_rate"
+                    app:cameraPreviewFrameRateExact="false|true"
+                    app:cameraFacing="back|front"
+                    app:cameraHdr="on|off"
+                    app:cameraFlash="on|auto|torch|off"
+                    app:cameraWhiteBalance="auto|cloudy|daylight|fluorescent|incandescent"
+                    app:cameraMode="picture|video"
+                    app:cameraAudio="on|off|mono|stereo"
+                    app:cameraGrid="draw3x3|draw4x4|drawPhi|off"
+                    app:cameraGridColor="@color/grid_color"
+                    app:cameraPlaySounds="true|false"
+                    app:cameraVideoMaxSize="@integer/video_max_size"
+                    app:cameraVideoMaxDuration="@integer/video_max_duration"
+                    app:cameraVideoCodec="deviceDefault|h264|h263"
+                    app:cameraAutoFocusResetDelay="@integer/autofocus_delay"
+                    app:cameraAutoFocusMarker="@string/cameraview_default_autofocus_marker"
+                    app:cameraUseDeviceOrientation="true|false"
+                    app:cameraFilter="@string/real_time_filter"
+                    app:cameraPictureMetering="true|false"
+                    app:cameraPictureSnapshotMetering="false|true"
+                    app:cameraPictureFormat="jpeg|dng"
+                    app:cameraRequestPermissions="true|false"
+                    app:cameraExperimental="false|true">-->
+
+                <!-- Watermark! -->
+                 <ImageView
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:layout_gravity="bottom|end"
+                     android:scaleType="centerCrop"
+                     app:srcCompat="@drawable/ic_ccc_profilecamera"
+                     app:layout_drawOnPreview="true"
+                     app:layout_drawOnPictureSnapshot="false"
+                     app:layout_drawOnVideoSnapshot="false"/>
+
+            </com.otaliastudios.cameraview.CameraView>
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_marginStart="@dimen/_20sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios"/>
+
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/label_top_mediumX"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/cc_take_snap"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/captureImage"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_camera_capture"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            app:layout_constraintBottom_toTopOf="@id/gallery"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/gallery"
+            style="@style/label_top_mediumX"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/cc_gallery"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/turnOn"
+            style="@style/label_top_mediumX"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/cc_turn_on"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+        <variable
+            name="helpItem"
+            type="com.jsbl.genix.model.help.HelpItem" />
+
+        <variable
+            name="model"
+            type="com.jsbl.genix.model.redeem.AvailableRedeemsModelItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?cmBackground"
+        tools:context=".views.activities.ActLogin">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/back"
+            style="@style/fab_style"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            app:elevation="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:maxImageSize="@dimen/_15sdp"
+            app:pressedTranslationZ="12dp"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+        <ImageView
+            android:id="@+id/cart"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:src="@drawable/ic_outline_shopping_cart_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/back" />
+
+
+        <TextView
+            android:id="@+id/cart_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cart_count_background"
+            android:textAlignment="center"
+            android:paddingHorizontal="@dimen/_3sdp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8sdp"
+            app:layout_constraintEnd_toEndOf="@id/cart"
+            app:layout_constraintTop_toTopOf="@+id/cart"/>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/verification_tob_largeXX"
+            android:layout_marginBottom="12dp"
+            android:text="@string/alt_redeem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/back" />
+
+        <TextView
+            android:id="@+id/title_redeem"
+            style="@style/label_black_mediumX"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="12dp"
+            android:text="@{model.title}"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivRedeem" />
+
+
+        <TextView
+            android:id="@+id/description_redeem"
+            style="@style/label_tob_medium"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginBottom="12dp"
+            android:text="@{model.description}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title_redeem" />
+
+
+        <TextView
+            android:id="@+id/start_date"
+            style="@style/label_tob_medium"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginBottom="12dp"
+            app:startDateFormat="@{model.startDate}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/description_redeem" />
+
+
+        <TextView
+            android:id="@+id/end_date"
+            style="@style/label_tob_medium"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginBottom="12dp"
+            app:endDateFormat="@{model.expiryDate}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/start_date" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivRedeem"
+            style="@style/login_profile_im2"
+            glide="@{model !=null ? model.filePath :0 }"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:src="@drawable/ic_login_profile_avatar"
+            app:civ_border_color="@color/gray_shade_69"
+            app:civ_border_width="@dimen/profile_im_stroke"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <ImageView
+            android:id="@+id/ic_star"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            app:layout_constraintBottom_toTopOf="@+id/title_points"
+            app:layout_constraintEnd_toEndOf="@+id/title_points"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="@+id/title_points"
+            app:layout_constraintTop_toBottomOf="@+id/end_date"
+            app:srcCompat="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/title_points"
+            style="@style/label_tob_medium"
+            android:text="Points for Lucky Lraw"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginStart="@dimen/_30sdp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/end_date"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/points"
+            style="@style/label_tob_medium"
+            android:text="@{model.point.toString()}"
+            app:layout_constraintTop_toBottomOf="@+id/title_points"
+            app:layout_constraintStart_toStartOf="@id/title_points"
+            app:layout_constraintEnd_toEndOf="@id/title_points"/>
+
+        <ImageView
+            android:id="@+id/ic_star_money"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@+id/title_points_money"
+            app:layout_constraintEnd_toEndOf="@+id/title_points_money"
+            app:layout_constraintStart_toStartOf="@+id/title_points_money"
+            app:layout_constraintTop_toBottomOf="@+id/end_date"
+            app:srcCompat="@drawable/ic_star" />
+
+        <TextView
+            android:id="@+id/title_points_money"
+            style="@style/label_tob_medium"
+            android:text="Money for the Game"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/end_date"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/money"
+            style="@style/label_tob_medium"
+            android:text="@{model.winningAmount.toString()}"
+            app:layout_constraintStart_toStartOf="@id/title_points_money"
+            app:layout_constraintTop_toBottomOf="@+id/title_points_money"
+            app:layout_constraintEnd_toEndOf="@id/title_points_money" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_redeem"
+            app:layout_constraintTop_toTopOf="@id/redeem_item">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/redeem_item"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:background="@drawable/redeem_tabs_back_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_points">
+
+            <include
+                android:id="@+id/available_points_top"
+                style="@style/card_redeem_item"
+                layout="@layout/recycler_redeem_item"
+                app:redeemItem='@{model}'
+
+                app:layout_constraintTop_toTopOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnNext"
+            style="@style/login_bt_mediumX"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/add_to_cart"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.graphics.drawable.Drawable" />
+        <variable
+            name="detailIcon"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="detailTitle"
+            type="String" />
+
+        <variable
+            name="detailValue"
+            type="String" />
+
+        <variable
+            name="detailColor"
+            type="Integer" />
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/outProgressBar"
+        style="@style/dashboard_Constraint_button"
+        android:setBackgroundColor="@{(detailColor!=null) ? detailColor: @color/white}"
+        android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+        tools:targetApi="lollipop">
+
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/circularProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/_4sdp"
+            app:cpb_background_progressbar_color="@color/transparent"
+            app:cpb_background_progressbar_width="4dp"
+            android:setProgColor="@{(detailColor!=null) ? detailColor: @color/white}"
+            app:cpb_progress_direction="to_right"
+            app:cpb_progressbar_width="4dp"
+            app:cpb_round_border="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <ImageView
+            android:id="@+id/icon"
+            style="@style/dashboard_button_icon"
+            android:layout_marginTop="@dimen/_2sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/title"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:setDrawable="@{detailIcon}"
+            app:tint="@color/cmOnPrimary"/>
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/label_top_smallX"
+            android:layout_width="wrap_content"
+            android:singleLine="true"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text='@{detailTitle}'
+            android:textSize="8sp"
+            app:layout_constraintBottom_toTopOf="@+id/value"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/icon" />
+
+        <TextView
+            android:id="@+id/value"
+            style="@style/label_top_smallX"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginStart="@dimen/_6sdp"
+            android:layout_marginEnd="@dimen/_6sdp"
+            android:maxLength="6"
+            android:textSize="8sp"
+            android:gravity="center"
+            android:text='@{detailValue}'
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

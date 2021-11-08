@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="redeemItem"
+            type="com.jsbl.genix.model.redeem.ReedemListInActiveItem" />
+
+
+        <variable
+            name="onViewClick"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/redeem_item_background"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <ImageView
+                android:id="@+id/starting_icon"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                app:glide="@{redeemItem !=null ? redeemItem.filePath :0 }"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/startingTV"
+                style="@style/label_tob_mediumX"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:maxLines="1"
+                android:text="@{redeemItem.title}"
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@id/distance"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+
+            <TextView
+                android:id="@+id/distance"
+                style="@style/label_tob_mediumX"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:maxLines="1"
+                android:text="@{String.valueOf(redeemItem.point+` Points`)}"
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/startingTV"
+                app:layout_constraintTop_toTopOf="@id/startingTV" />
+
+            <TextView
+                android:id="@+id/expiry"
+                style="@style/label_tob_smallX"
+                android:layout_width="@dimen/_50sdp"
+                android:maxLines="2"
+                android:textColor="@color/gray_shade_69"
+                app:expireDateFormat="@{redeemItem.expiryDate}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/endingTV"
+                app:layout_constraintTop_toTopOf="@id/endingTV" />
+
+            <TextView
+                android:id="@+id/endingTV"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:maxLines="2"
+                android:text="@{redeemItem.description}"
+                android:textColor="@color/gray_shade_69"
+                app:layout_constraintEnd_toEndOf="@id/startingTV"
+                app:layout_constraintStart_toStartOf="@id/startingTV"
+                app:layout_constraintTop_toBottomOf="@id/startingTV" />
+
+            <!-- <View
+                 android:layout_width="match_parent"
+                 android:layout_height="1dp"
+                 android:layout_marginStart="@dimen/_50sdp"
+                 android:layout_marginEnd="@dimen/_50sdp"
+                 android:background="?colorPrimaryVariant"
+                 app:layout_constraintBottom_toBottomOf="parent" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

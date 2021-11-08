@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_login_bg"
+        android:padding="@dimen/_20sdp">
+
+
+        <TextView
+            android:id="@+id/tvAccCompletionTrips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="@string/registration_account_completion"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.68"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/pBarTrips"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_80sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="80"
+            android:progressDrawable="@drawable/alt_progressbar_totaldistance"
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAccCompletionTrips" />
+
+        <ImageView
+            android:id="@+id/ivDropdownTrips"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_120sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="@id/pBarTrips"
+            app:layout_constraintStart_toStartOf="@id/pBarTrips"
+            app:layout_constraintTop_toBottomOf="@id/tvAccCompletionTrips"
+            app:srcCompat="@drawable/alt_drop_down"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvProgressDigitsTrips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="@string/digits_eight"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/ivDropdownTrips"
+            app:layout_constraintStart_toStartOf="@id/ivDropdownTrips"
+            app:layout_constraintTop_toBottomOf="@id/pBarTrips" />
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfile"
+            style="@style/login_profile_im2"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/ic_login_profile_avatar"
+            app:civ_border_color="?cmBackground"
+            app:civ_border_width="@dimen/profile_im_stroke"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProgressDigitsTrips" />
+
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/title_top_largeXX"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/home_name"
+            app:layout_constraintBottom_toTopOf="@id/city"
+            app:layout_constraintStart_toEndOf="@id/ivProfile"
+            app:layout_constraintTop_toTopOf="@id/ivProfile" />
+
+        <TextView
+            android:id="@+id/city"
+            style="@style/label_top_mediumX"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:text="City"
+            app:layout_constraintBottom_toTopOf="@id/rating"
+            app:layout_constraintStart_toEndOf="@id/ivProfile"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rating"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:numStars="5"
+            app:layout_constraintBottom_toBottomOf="@id/ivProfile"
+            app:layout_constraintStart_toEndOf="@id/ivProfile"
+            app:layout_constraintTop_toBottomOf="@id/city" />
+
+
+        <TextView
+            android:id="@+id/tvAccCompletionTotalDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="Total distance"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rating" />
+
+        <ProgressBar
+            android:id="@+id/pBartotalDistance"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="80"
+            android:progressDrawable="@drawable/alt_progressbar"
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAccCompletionTotalDistance" />
+
+        <ImageView
+            android:id="@+id/ivDropdowntotalDistance"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_120sdp"
+            app:layout_constraintEnd_toEndOf="@id/pBartotalDistance"
+            app:layout_constraintStart_toStartOf="@id/pBartotalDistance"
+            app:layout_constraintTop_toBottomOf="@id/pBartotalDistance"
+            app:srcCompat="@drawable/alt_drop_down"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvProgressDigitsTotalDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="@string/digits_eight"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/ivDropdowntotalDistance"
+            app:layout_constraintStart_toStartOf="@id/ivDropdowntotalDistance"
+            app:layout_constraintTop_toBottomOf="@id/ivDropdowntotalDistance" />
+
+        <TextView
+            android:id="@+id/tvAccCompletionCornering"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="Cornering"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProgressDigitsTotalDistance" />
+
+        <ProgressBar
+            android:id="@+id/pBarCornering"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="80"
+            android:progressDrawable="@drawable/alt_progressbar_cornering"
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAccCompletionCornering" />
+
+        <ImageView
+            android:id="@+id/ivDropdownCornering"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_120sdp"
+            app:layout_constraintEnd_toEndOf="@id/pBarCornering"
+            app:layout_constraintStart_toStartOf="@id/pBarCornering"
+            app:layout_constraintTop_toBottomOf="@id/pBarCornering"
+            app:srcCompat="@drawable/alt_drop_down"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvProgressDigitsCornering"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="@string/digits_eight"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/ivDropdownCornering"
+            app:layout_constraintStart_toStartOf="@id/ivDropdownCornering"
+            app:layout_constraintTop_toBottomOf="@id/ivDropdownCornering" />
+
+        <TextView
+            android:id="@+id/tvAccCompletionBreaking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="Total distance"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvProgressDigitsCornering" />
+
+        <ProgressBar
+            android:id="@+id/pBarBreaking"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="80"
+            android:progressDrawable="@drawable/alt_progressbar_breaking"
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAccCompletionBreaking" />
+
+        <ImageView
+            android:id="@+id/ivDropdownBreaking"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_120sdp"
+            app:layout_constraintEnd_toEndOf="@id/pBarBreaking"
+            app:layout_constraintStart_toStartOf="@id/pBarBreaking"
+            app:layout_constraintTop_toBottomOf="@id/pBarBreaking"
+            app:srcCompat="@drawable/alt_drop_down"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/tvProgressDigitsBreaking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/cocomat_regular"
+            android:text="@string/digits_eight"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@id/ivDropdownBreaking"
+            app:layout_constraintStart_toStartOf="@id/ivDropdownBreaking"
+            app:layout_constraintTop_toBottomOf="@id/ivDropdownBreaking" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

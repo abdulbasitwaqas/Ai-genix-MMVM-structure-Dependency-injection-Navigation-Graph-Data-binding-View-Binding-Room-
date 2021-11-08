@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+        <variable
+            name="customer"
+            type="com.jsbl.genix.model.profileManagement.PostCarDetail" />
+    </data>
+
+
+
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainConstraintCardDetails"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".views.fragments.InsuranceYes">
+
+
+        <!--
+                  <ImageView
+                      android:id="@+id/ivLogo"
+                      android:layout_width="@dimen/_80sdp"
+                      android:layout_height="@dimen/_70sdp"
+                      android:src="@drawable/alt_curvelogo"
+                      app:layout_constraintStart_toStartOf="parent"
+                      app:layout_constraintTop_toTopOf="parent"/>-->
+
+
+        <include
+            android:id="@+id/action_bar_custom"
+            layout="@layout/action_bar_custom"
+            app:layout_constraintBottom_toTopOf="@+id/frame"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onClickListener="@{onClickListener}"
+            app:titleName="@{@string/insurance_details}" />
+
+
+        //radioButtons
+
+        <LinearLayout
+            android:id="@+id/radioLinear"
+            style="@style/below_action_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:paddingTop="@dimen/_20sdp"
+            android:gravity="left"
+            android:background="@drawable/new_bottom_shape"
+            android:elevation="@dimen/anchored_elevation"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar_custom">
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:gravity="left"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radioYes"
+                    style="@style/label_tob_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?colorPrimaryVariant2"
+                    android:checked="true"
+                    android:text="@string/yes" />
+
+                <RadioButton
+                    android:id="@+id/radioNo"
+                    android:layout_width="wrap_content"
+                    style="@style/label_tob_medium"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="?colorPrimaryVariant2"
+                    android:text="@string/no" />
+
+            </RadioGroup>
+
+        //name
+
+        <ScrollView
+            android:id="@+id/bigForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioLinear">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="@dimen/bottom_padding"
+                android:orientation="vertical">
+
+                <include
+                    android:id="@+id/edNameCompany"
+                    layout="@layout/edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/name_company}"
+                    app:editPlaceHolder='@{@string/name_company}'
+                    app:editMaxLength='@{150}'
+                    app:layout_constraintBottom_toTopOf="@id/edMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                    app:text='@{customer !=null ? customer.insuranceCompany : "" }' />
+
+                //date
+
+                <include
+                    android:id="@+id/edDate"
+                    layout="@layout/edit_layout_uneditable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/renewal_date}"
+                    app:editPlaceHolder='@{@string/renewal_date}'
+                    app:layout_constraintBottom_toTopOf="@id/edMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                     />
+<!--                app:text='@{customer !=null ? customer.renewalDate : "" }'-->
+                //InsurancePremium
+
+                <include
+                    android:id="@+id/edInsurancePremium"
+                    layout="@layout/edit_layout_numeric"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:inputType="number"
+                    app:editHint="@{@string/insurance_premium}"
+                    app:editPlaceHolder='@{@string/insurance_premium}'
+                    app:editMaxLength='@{100}'
+                    app:layout_constraintBottom_toTopOf="@id/edMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                    app:text='@{customer !=null ? customer.insurancePremium : "" }' />
+
+
+                //Deductible
+
+                <include
+                    android:id="@+id/edDeductible"
+                    layout="@layout/edit_layout_numeric"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/deductible}"
+                    app:editPlaceHolder='@{@string/deductible}'
+                    app:editMaxLength='@{100}'
+                    app:layout_constraintBottom_toTopOf="@id/edMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                    app:text='@{customer !=null ? customer.deductible : "" }' />
+
+
+                //ReasonForCurrentInsurer
+
+                <include
+                    android:id="@+id/edReason"
+                    layout="@layout/edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/reason}"
+                    app:editPlaceHolder='@{@string/reason}'
+                    app:editMaxLength='@{500}'
+                    app:layout_constraintBottom_toTopOf="@id/edMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                    app:text='@{customer !=null ? customer.reasonForCurrentInsurer : "" }' />
+
+
+                //ThingsThatcanbeImproved
+
+                <include
+                    android:id="@+id/edImporvements"
+                    layout="@layout/edit_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:editHint="@{@string/things}"
+                    app:editPlaceHolder='@{@string/things}'
+                    app:editMaxLength='@{500}'
+                    app:layout_constraintBottom_toTopOf="@id/edMobile"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                    app:text='@{customer !=null ? customer.thingsThatCanBeImproved : "" }' />
+
+
+                <Button
+                    android:id="@+id/btnFeedback"
+                    style="@style/login_bt_mediumX"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                    android:text="@string/submit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spinner_reason" />
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/smallForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.37"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radioLinear">
+
+            <include
+                android:id="@+id/spinner_reason"
+                layout="@layout/edit_layout_spinner_insurance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editHint="@{@string/reasons_for_no}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                tools:ignore="MissingPrefix" />
+
+
+            <include
+                android:id="@+id/commentET"
+                layout="@layout/edit_layout_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                app:editMaxLength='@{500}'
+                app:editPlaceHolder="@{@string/give_reason}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/spinner_reason"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinner_reason"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/btnFeedbackNo"
+                style="@style/login_bt_mediumX"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                android:text="@string/submit"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/commentET"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

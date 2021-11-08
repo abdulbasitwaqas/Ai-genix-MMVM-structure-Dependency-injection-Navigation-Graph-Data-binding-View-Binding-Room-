@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="welcomeBtnIcon"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="welcomeBtnText"
+            type="String" />
+
+
+        <variable
+            name="welcomeBtnListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/innerConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:onClick="@{(view)->welcomeBtnListener.onClick(view,0)}"
+
+        android:background="@drawable/red_line_btn">
+
+
+        <ImageView
+            android:id="@+id/btnIcon"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            app:layout_constraintBottom_toTopOf="@id/btnText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:setDrawable="@{welcomeBtnIcon}"
+            app:tint="?colorPrimary" />
+
+        <TextView
+            android:id="@+id/btnText"
+            style="@style/welcome_btn_large_bold"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text='@{welcomeBtnText}'
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/arrow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnIcon" />
+
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintBottom_toTopOf="@id/pointsText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnText"
+            app:srcCompat="@drawable/new_ic_profile_management_btn_arrow" />
+
+        <TextView
+            android:id="@+id/pointsText"
+            style="@style/label_tob_medium"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:text='Up to 250 Points'
+            android:textColor="@color/gray_shade_69"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arrow" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search">Search..</string>
+    <string name="something_went_wrong">Something went wrong, please try agian later</string>
+    <string name="give_reason">Kindly share your reason with us</string>
+    <string name="change_default_car">Kindly change your default Car</string>
+    <string name="permission_msg">Permissions Require</string>
+    <string name="give_permission">Give Permissions</string>
+    <string name="allow_permission">Allow Permissions</string>
+    <string name="allow_all_permissions">Kindly allow all permissions</string>
+    <string name="week">Week</string>
+    <string name="month">Month</string>
+    <string name="year">Year</string>
+    <string name="no_result_found">No Result Found</string>
+    <string name="rate_your_experience">Rate your experience</string>
+    <string name="registration_process_feedback">How was the registration process?</string>
+    <string name="share_now">Share Now</string>
+    <string name="referece_code_alert">Reference Code!</string>
+    <string name="reference_code_msg">Are you referred by someone? \nIf yes, please enter reference code otherwise skip this message.</string>
+    <string name="add">Add</string>
+    <string name="skip">Skip</string>
+    <string name="enter_referece_code_here">Enter reference code</string>
+    <string name="search_header">Search</string>
+    <string name="no_sub_interests">No sub interests found.</string>
+    <string name="grid_view">Grid View</string>
+    <string name="list_view">List View</string>
+    <string name="no_games">No Games Available</string>
+    <string name="string_message_wait">Please wait...</string>
+    <string name="please_wait">Please wait...</string>
+</resources>

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="customer"
+            type="com.jsbl.genix.model.registration.CustomerX" />
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?cmBackground"
+        android:orientation="vertical"
+        android:padding="0dp">
+
+        <!--  <ImageView
+              android:id="@+id/drawerProfileImage"
+              android:layout_width="@dimen/_90sdp"
+              android:layout_height="@dimen/_90sdp"
+              android:src="@drawable/alt_loginavatar"
+
+              android:paddingTop="@dimen/_10sdp"
+              android:paddingBottom="@dimen/_10sdp"
+              android:imageUrl='@{customer !=null ? customer.profileImagePath : "" }'
+              android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+             />-->
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/drawerProfileImage"
+            style="@style/login_profile_im"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:profileImage='@{customer !=null ? customer.profileImagePath : "" }'
+            android:src="@drawable/ic_login_profile_avatar"
+            app:civ_border_color="@color/gray_shade_69"
+            app:civ_border_width="@dimen/profile_im_stroke"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/drawerName"
+            style="@style/label_tob_mediumX"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:gravity="start"
+            android:maxLines="1"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/home_name"
+            app:layout_constraintBottom_toTopOf="@id/tvNavLocation"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/drawerProfileImage"
+            app:layout_constraintTop_toTopOf="@+id/drawerProfileImage"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+
+        <TextView
+            android:id="@+id/tvNavLocation"
+            style="@style/label_tob_mediumX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="City"
+            android:textColor="@color/gray_shade_69"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/drawerProfileImage"
+            app:layout_constraintStart_toStartOf="@+id/drawerName"
+            app:layout_constraintTop_toBottomOf="@id/drawerName" />
+
+        <TextView
+            android:id="@+id/tvLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="?colorPrimaryVariant"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drawerProfileImage" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

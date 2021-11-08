@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".views.activities.ActCaptureCamera">
+
+
+        <!-- <SurfaceView
+             android:id="@+id/surfaceView"
+             android:layout_width="@dimen/_230sdp"
+             android:layout_height="@dimen/_230sdp"
+             android:layout_marginTop="@dimen/_50sdp"
+             android:background="@drawable/ic_capture_pic_dotted_circle"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@id/title" />-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <SurfaceView
+                android:id="@+id/surfaceView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_margin="@dimen/_2sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom|end"
+                android:scaleType="centerCrop"
+                app:layout_drawOnPictureSnapshot="false"
+                app:layout_drawOnPreview="true"
+                app:layout_drawOnVideoSnapshot="false"
+                app:srcCompat="@drawable/ic_scan_id_card"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="-2dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--   <com.otaliastudios.cameraview.CameraView
+               android:id="@+id/cameraView"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:keepScreenOn="true"
+               app:cameraAudio="off"
+               app:cameraAutoFocusMarker="@string/cameraview_default_autofocus_marker"
+               app:cameraEngine="camera2"
+               app:cameraExperimental="true"
+               app:cameraFacing="front"
+               app:cameraFlash="auto"
+               app:cameraGestureLongTap="none"
+               app:cameraGesturePinch="zoom"
+               app:cameraGestureScrollHorizontal="filterControl1"
+               app:cameraGestureScrollVertical="exposureCorrection"
+               app:cameraGestureTap="autoFocus"
+               app:cameraGrid="off"
+               app:cameraMode="picture"
+               app:cameraPlaySounds="true"
+               app:cameraPreview="glSurface"
+               app:layout_constraintCircleRadius="@dimen/_100sdp">
+
+               &lt;!&ndash; Watermark! &ndash;&gt;
+               <ImageView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:layout_gravity="bottom|end"
+                   android:scaleType="centerCrop"
+                   app:layout_drawOnPictureSnapshot="false"
+                   app:layout_drawOnPreview="true"
+                   app:layout_drawOnVideoSnapshot="false"
+                   app:srcCompat="@drawable/ic_ccc_profilecamera" />
+
+           </com.otaliastudios.cameraview.CameraView>-->
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            app:layout_constraintBottom_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/title"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios"/>
+
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/label_top_mediumX"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:text="@string/capture_cnic_front"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/upperLabel"
+            style="@style/label_top_mediumX"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:text="@string/scan_upper_caption"
+            app:layout_constraintBottom_toTopOf="@id/lowerLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/title" />
+
+        <TextView
+            android:id="@+id/lowerLabel"
+            style="@style/label_top_mediumX"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_120sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:gravity="center"
+            android:text="@string/scan_lower_caption"
+            android:textSize="@dimen/textMedium"
+            app:layout_constraintBottom_toTopOf="@id/captureImage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/upperLabel" />
+        <TextView
+            android:id="@+id/scanning"
+            style="@style/label_top_mediumX"
+            android:layout_width="0dp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
+            android:gravity="center"
+            android:text="Scanning"
+            android:textSize="@dimen/textMedium"
+            app:layout_constraintTop_toBottomOf="@id/lowerLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/captureImage"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_camera_capture"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@id/gallery"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/gallery"
+            style="@style/label_top_mediumX"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/cc_gallery"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/turnOn"
+            style="@style/label_top_mediumX"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_50sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/cc_turn_on"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

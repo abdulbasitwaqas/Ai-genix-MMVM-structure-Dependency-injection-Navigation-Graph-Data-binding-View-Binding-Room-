@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+        <variable
+            name="helpItem"
+            type="com.jsbl.genix.model.help.HelpItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent"
+        tools:context=".views.activities.ActLogin">
+        <TextView
+            android:id="@+id/startingTV"
+            style="@style/label_tob_mediumX"
+            android:layout_width="0dp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:maxLines="1"
+            android:text="No Record Found"
+            android:textColor="?colorOnBackground"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:layout_marginTop="@dimen/_30sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/redeem_list"
+            android:layout_width="match_parent"
+            android:background="@drawable/redeem_tabs_back_shape"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:paddingBottom="@dimen/_10sdp"
+            tools:itemCount="3"
+            tools:listitem="@layout/recycler_redeem_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

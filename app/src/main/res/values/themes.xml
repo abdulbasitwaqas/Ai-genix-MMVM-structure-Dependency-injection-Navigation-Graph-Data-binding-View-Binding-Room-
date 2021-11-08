@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--Material color attributes (light theme) -->
+
+    <style name="Base.Theme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge" />
+
+    <style name="Base.Theme.App" parent="Base.Theme">
+        <item name="cmBackground">@color/cmBackground</item>
+        <item name="cmBackground_cc">@color/cmBackground_cc</item>
+        <item name="cmBackground_cc_transparent">@color/transparent</item>
+        <item name="colorSurface">@color/cmSurface</item>
+        <item name="colorError">@color/cmError</item>
+        <item name="colorPrimary">@color/cmPrimary</item> <!--toolbar color-->
+        <item name="colorPrimaryDark">@color/cmPrimaryD</item> <!--status bar color-->
+        <item name="colorPrimaryVariant">@color/cmPrimaryV</item> <!--status bar color-->
+        <item name="colorPrimaryVariant2">@color/cmPrimaryV2</item> <!--status bar color-->
+        <item name="colorAccent">@color/cmPrimary</item>
+        <item name="colorSecondary">@color/cmSecondary</item> <!--fab icon color-->
+        <item name="colorSecondaryVariant">@color/cmSecondary</item> <!--use sparingly-->
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/black</item>
+
+        <item name="package_unselected_back">@color/package_unselected_back</item>
+        <item name="package_unselected_stroke">@color/package_unselected_stroke</item>
+
+        <item name="colorOnBackground">@color/cmOnBackground</item>
+        <item name="colorOnBackground_55">@color/cmPrimary_55</item>
+        <item name="colorOnBackground_80">@color/cmPrimary_80</item>
+        <item name="colorOnSurface">@color/cmOnSurface</item>
+        <item name="colorOnError">@color/cmOnError</item>
+        <item name="colorOnPrimary">@color/cmOnPrimary</item>
+        <item name="colorOnSecondary">@color/cmOnSecondary</item>
+
+
+        <!-- Apply themes to views globally -->
+
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert
+        </item> <!-- this applies a default theme for all alert dialogs -->
+        <item name="bottomSheetDialogTheme">@style/Theme.MaterialComponents.BottomSheetDialog
+        </item> <!-- this applies a default theme for all bottom sheets  -->
+        <item name="toolbarStyle">@style/ThemeOverlay.MaterialComponents.Toolbar.Primary
+        </item> <!-- this applies a default theme for all toolbars -->
+        <!--<item name="tabStyle">@style/App.Theme.TabLayout
+        </item> &lt;!&ndash; this applies a default theme for all tab-layouts &ndash;&gt;
+        <item name="materialCardViewStyle">@style/ThemeOverlay.MaterialComponents.
+        </item> &lt;!&ndash; this applies a default theme for all material card view&ndash;&gt;-->
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button
+        </item> <!-- this applies a default theme for all material buttons -->
+    </style>
+
+    <!-- default app theme applied to Application class in AndroidManifest.xml -->
+    <style name="Theme.MyApp" parent="Base.Theme.App" />
+
+    <style name="Theme.MyApp.dark" parent="Base.Theme.App">
+        <item name="cmBackground">@color/cmBackgroundDark</item>
+        <item name="cmBackground_cc">@color/cmBackgroundDark_cc</item>
+        <item name="cmBackground_cc_transparent">@color/transparent</item>
+        <item name="colorSurface">@color/cmSurfaceDark</item>
+        <item name="colorError">@color/cmError</item>
+        <item name="colorPrimary">@color/cmPrimary</item> <!--toolbar color-->
+        <item name="colorPrimaryDark">@color/cmPrimaryD</item> <!--status bar color-->
+        <item name="colorPrimaryVariant">@color/cmPrimaryV</item> <!--status bar color-->
+        <item name="colorSecondary">@color/cmSecondary</item> <!--fab icon color-->
+        <item name="colorSecondaryVariant">@color/cmSecondary</item> <!--use sparingly-->
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
+        <item name="package_unselected_back">@color/package_unselectedDark_back</item>
+        <item name="package_unselected_stroke">@color/package_unselectedDark_stroke</item>
+
+        <item name="android:spinnerDropDownItemStyle">@style/Spinner</item>
+        <item name="colorOnBackground">@color/cmOnBackground</item>
+        <item name="colorOnBackground_55">@color/cmPrimary_55</item>
+        <item name="colorOnBackground_80">@color/cmPrimary_80</item>
+        <item name="colorOnSurface">@color/cmOnSurfaceDark</item>
+        <item name="colorOnError">@color/cmOnError</item>
+        <item name="colorOnPrimary">@color/cmOnPrimary</item>
+        <item name="colorOnSecondary">@color/cmOnSecondary</item>
+        <item name="android:actionMenuTextColor">@color/black</item>
+        <item name="android:itemTextAppearance">@style/myCustomMenuTextAppearance</item>
+
+        <!-- Apply themes to views globally -->
+
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.MaterialComponents.Dialog.Alert
+        </item> <!-- this applies a default theme for all alert dialogs -->
+        <item name="bottomSheetDialogTheme">@style/Theme.MaterialComponents.BottomSheetDialog
+        </item> <!-- this applies a default theme for all bottom sheets  -->
+        <item name="toolbarStyle">@style/ThemeOverlay.MaterialComponents.Toolbar.Primary
+        </item> <!-- this applies a default theme for all toolbars -->
+        <!--<item name="tabStyle">@style/App.Theme.TabLayout
+        </item> &lt;!&ndash; this applies a default theme for all tab-layouts &ndash;&gt;
+        <item name="materialCardViewStyle">@style/ThemeOverlay.MaterialComponents.
+        </item> &lt;!&ndash; this applies a default theme for all material card view&ndash;&gt;-->
+        <item name="materialButtonStyle">@style/Widget.MaterialComponents.Button
+        </item> <!-- this applies a default theme for all material buttons -->
+
+    </style>
+
+    <style name="NavigationTheme" parent="AppTheme">
+        <item name="android:textSize">@dimen/textMedium</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+
+</resources>

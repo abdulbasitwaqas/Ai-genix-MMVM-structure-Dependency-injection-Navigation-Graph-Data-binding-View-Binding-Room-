@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?cmBackground"
+        tools:context=".views.activities.ActLogin">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/back"
+            style="@style/fab_style"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+
+            app:elevation="6dp"
+            app:maxImageSize="@dimen/_15sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:pressedTranslationZ="12dp"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+
+        <ImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:civ_border_color="?cmBackground"
+            app:civ_border_width="@dimen/profile_im_stroke"
+            app:layout_constraintBottom_toTopOf="@id/tvLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/new_ic_verification" />
+
+
+        <TextView
+            android:id="@+id/tvLogin"
+            style="@style/verification_tob_largeXX"
+            android:layout_marginBottom="12dp"
+            android:text="@string/label_enter_verification_code"
+            app:layout_constraintBottom_toTopOf="@id/sentCaption"
+            app:layout_constraintEnd_toEndOf="@id/ivProfile"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="@id/ivProfile" />
+
+        <TextView
+            android:id="@+id/sentCaption"
+            style="@style/label_tob_mediumX"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:text="@string/label_verification_sent"
+            app:layout_constraintBottom_toTopOf="@+id/firstPinView"
+            app:layout_constraintEnd_toStartOf="@id/mobileNumber"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/mobileNumber"
+            style="@style/label_tob_mediumX"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:text=""
+            app:layout_constraintBottom_toBottomOf="@id/sentCaption"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sentCaption"
+            app:layout_constraintTop_toTopOf="@id/sentCaption" />
+
+
+        <TextView
+            android:id="@+id/tvVerify"
+            style="@style/label_tob_mediumX"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:text="@string/login_verify_your_mobile"
+            app:layout_constraintEnd_toStartOf="@id/timer"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstPinView" />
+
+
+        <Button
+            android:id="@+id/tvResend"
+            style="@style/login_bt_mediumX"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/login_resend_otp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/firstPinView" />
+
+
+        <TextView
+            android:id="@+id/timer"
+            style="@style/label_top_mediumX"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:text="time"
+            android:textColor="?colorPrimaryVariant2"
+            app:layout_constraintBottom_toBottomOf="@id/tvVerify"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvVerify"
+            app:layout_constraintTop_toTopOf="@+id/tvVerify" />
+
+
+        <com.gne.www.lib.PinView
+            android:id="@+id/firstPinView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:inputType="number"
+            app:isPassword="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:passwordToggleColor="@color/colorAccent"
+            app:passwordToggleSize="26dp"
+            app:pinBackground="@drawable/bg_verification_et_oval"
+            app:pinCount="6"
+            app:pinSize="40dp"
+            app:pinText=""
+            app:pinTextSize="@dimen/textSmall"
+            app:showPasswordToggle="false"
+            app:textColor="?colorOnBackground" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

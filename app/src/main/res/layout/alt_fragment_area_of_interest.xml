@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".views.fragments.AreaOfInterestFragment">
+
+        <include
+            android:id="@+id/action_bar_custom"
+            layout="@layout/action_bar_custom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:onClickListener="@{onClickListener}"
+            app:titleName="@{@string/area_details}" />
+
+
+        <LinearLayout
+            android:id="@+id/recyclerViewLL"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            style="@style/below_action_body"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/action_bar_custom" >
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/interestRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingTop="@dimen/_20sdp"
+                android:overScrollMode="never"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/action_bar_custom" />
+
+        </LinearLayout>
+
+
+        <!--
+
+                <Button
+                    android:id="@+id/btnInterestSubmit"
+                    style="@style/login_bt_mediumX"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:drawableEnd="@drawable/ic_login_next_icon"
+                    android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                    android:text="@string/submit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+        -->
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+        <variable
+            name="customer"
+            type="com.jsbl.genix.model.registration.CustomerX" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dashBoard4CL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/new_dash_back" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/new_ic_dash_back" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/drawerIcon"
+                        android:layout_width="@dimen/_40sdp"
+                        android:layout_height="@dimen/_40sdp"
+                        android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                        android:padding="@dimen/_10sdp"
+                        android:scaleType="fitCenter"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_home_drawer_icon" />
+
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/statsSpinner"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_36sdp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="52dp"
+                        app:backgroundTint="@color/green"
+                        android:gravity="center"
+                        android:padding="@dimen/_2sdp"
+                        style="@style/mySpinnerItemStyle"
+                        app:layout_constraintBottom_toBottomOf="@+id/drawerIcon"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/drawerIcon"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+                    <ImageView
+                        android:id="@+id/statsIV"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:src="@drawable/menu"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <Button
+                        android:id="@+id/printLogsBtn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:background="@color/transparent"
+                        android:text="Print Logs"
+                        android:gravity="center"
+                        android:textSize="@dimen/_8sdp"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/statsSpinner"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/circularProgressBar"
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="@dimen/_200sdp"
+                        android:layout_marginTop="16dp"
+                        app:cpb_background_progressbar_color="@color/gray_shade_69"
+                        app:cpb_background_progressbar_width="6dp"
+                        app:cpb_progress="50"
+                        app:cpb_progress_direction="to_right"
+                        app:cpb_progress_max="100"
+                        app:cpb_progressbar_color="@color/progress_yellow"
+                        app:cpb_progressbar_width="6dp"
+                        app:cpb_round_border="false"
+                        app:layout_constraintBottom_toBottomOf="@id/statsContainer"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/statsSpinner"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/ivProfile"
+                        android:layout_width="@dimen/_55sdp"
+                        android:layout_height="@dimen/_55sdp"
+                        android:layout_marginTop="32dp"
+                        android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                        android:profileImage='@{customer !=null ? customer.profileImagePath : "" }'
+                        android:src="@drawable/ic_login_profile_avatar"
+                        app:civ_border_color="@color/gray_shade_69"
+                        app:civ_border_width="@dimen/profile_im_stroke"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/drawerIcon"
+                        app:layout_constraintVertical_bias="0.0"
+                        app:layout_constraintVertical_chainStyle="packed" />
+
+
+                    <TextView
+                        android:id="@+id/name"
+                        style="@style/title_top_largeX"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@string/home_name"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/circularProgressBar"
+                        app:layout_constraintStart_toStartOf="@id/circularProgressBar"
+                        app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                        app:layout_constraintVertical_bias="0.0" />
+
+                    <TextView
+                        android:id="@+id/city"
+                        style="@style/label_top_mediumX"
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:visibility="invisible"
+                        app:layout_constraintBottom_toTopOf="@+id/statsContainer"
+                        app:layout_constraintEnd_toEndOf="@id/name"
+                        app:layout_constraintStart_toStartOf="@id/name"
+                        app:layout_constraintTop_toBottomOf="@id/name" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/statsContainer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:padding="@dimen/_2sdp"
+                        app:layout_constraintBottom_toTopOf="@+id/speedConstraint"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/name">
+
+                        <View
+                            android:id="@+id/connectorLine"
+                            android:layout_width="@dimen/_2sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:background="?colorSecondary"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvTotalScoreLabel"
+                            style="@style/label_top_mediumX"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginEnd="@dimen/_10sdp"
+                            android:text="Total Score"
+                            app:layout_constraintEnd_toStartOf="@id/connectorLine"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvTotalScore"
+                            style="@style/title_top_largeX"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:maxLength="6"
+                            android:text="- -"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@id/tvTotalScoreLabel"
+                            app:layout_constraintStart_toStartOf="@id/tvTotalScoreLabel"
+                            app:layout_constraintTop_toBottomOf="@id/tvTotalScoreLabel" />
+
+                        <TextView
+                            android:id="@+id/tvPointsLabel"
+                            style="@style/label_top_mediumX"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:text="Points"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/connectorLine"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvPoints"
+                            style="@style/title_top_largeX"
+                            android:layout_marginStart="@dimen/_9sdp"
+                            android:text="- -"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/connectorLine"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPointsLabel" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayoutss"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/circularProgressBar">
+
+
+                        <include
+                            android:id="@+id/corneringConstraint"
+                            style="@style/dashboard_Constraint_button"
+                            layout="@layout/dashboard_detail_layout_on_primary"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            app:detailColor='@{@color/progress_green}'
+                            app:detailIcon="@{@drawable/ic_dashboardcornering}"
+                            app:detailTitle='@{@string/cornering}'
+                            app:detailValue='@{"1"}'
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/totalDistanceConstraint"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:onClickListener='@{onClickListener}' />
+
+
+                        <include
+                            android:id="@+id/totalDistanceConstraint"
+                            style="@style/dashboard_Constraint_button"
+                            layout="@layout/dashboard_detail_layout_on_primary"
+                            app:detailColor='@{@color/progress_green}'
+                            app:detailIcon="@{@drawable/ic_total_distance}"
+                            app:detailTitle='@{@string/distance}'
+                            app:detailValue='@{"1"}'
+
+                            app:layout_constraintBottom_toBottomOf="@+id/corneringConstraint"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/corneringConstraint"
+                            app:layout_constraintTop_toTopOf="@+id/corneringConstraint"
+                            app:onClickListener='@{onClickListener}' />
+
+
+                        <include
+                            android:id="@+id/brakingConstraint"
+                            style="@style/dashboard_Constraint_button"
+                            layout="@layout/dashboard_detail_layout_on_primary"
+                            android:layout_marginTop="16dp"
+                            app:detailColor='@{@color/progress_green}'
+                            app:detailIcon="@{@drawable/ic_dashboardbraking}"
+                            app:detailTitle='@{@string/braking}'
+
+                            app:detailValue='@{"1"}'
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/corneringConstraint"
+                            app:layout_constraintStart_toStartOf="@+id/corneringConstraint"
+                            app:layout_constraintTop_toBottomOf="@+id/corneringConstraint"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:onClickListener='@{onClickListener}' />
+
+
+                        <include
+                            android:id="@+id/accelerationConstraint"
+                            style="@style/dashboard_Constraint_button"
+                            layout="@layout/dashboard_detail_layout_on_primary"
+                            app:detailColor='@{@color/progress_green}'
+                            app:detailIcon="@{@drawable/ic_dashbaordacceleration}"
+                            app:detailTitle='@{@string/acceleration}'
+                            app:detailValue='@{"1"}'
+                            app:layout_constraintBottom_toBottomOf="@+id/brakingConstraint"
+                            app:layout_constraintEnd_toEndOf="@+id/totalDistanceConstraint"
+                            app:layout_constraintStart_toStartOf="@+id/totalDistanceConstraint"
+                            app:layout_constraintTop_toTopOf="@+id/brakingConstraint"
+                            app:onClickListener='@{onClickListener}' />
+
+
+                        <include
+                            android:id="@+id/timeOfDayConstraint"
+                            style="@style/dashboard_Constraint_button"
+                            layout="@layout/dashboard_detail_layout_on_primary"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginBottom="32dp"
+                            app:detailColor='@{@color/progress_green}'
+                            app:detailIcon="@{@drawable/ic_time_of_day}"
+                            app:detailTitle='@{@string/timeOfDay}'
+                            app:detailValue='@{"5"}'
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="@+id/brakingConstraint"
+                            app:layout_constraintStart_toStartOf="@+id/brakingConstraint"
+                            app:layout_constraintTop_toBottomOf="@+id/brakingConstraint"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:onClickListener='@{onClickListener}' />
+
+
+                        <include
+                            android:id="@+id/speedConstraint"
+                            style="@style/dashboard_Constraint_button"
+                            layout="@layout/dashboard_detail_layout_on_primary"
+                            app:detailColor='@{@color/progress_green}'
+                            app:detailIcon="@{@drawable/ic_tripspeed}"
+                            app:detailTitle='@{@string/dashboard_speed}'
+                            app:detailValue='@{"1"}'
+                            app:layout_constraintBottom_toBottomOf="@+id/timeOfDayConstraint"
+                            app:layout_constraintEnd_toEndOf="@+id/accelerationConstraint"
+                            app:layout_constraintStart_toStartOf="@+id/accelerationConstraint"
+                            app:layout_constraintTop_toTopOf="@+id/timeOfDayConstraint"
+                            app:onClickListener='@{onClickListener}' />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <ProgressBar
+                        android:id="@+id/progress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@xml/progress"
+                        android:indeterminateTint="?attr/colorPrimary"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.61" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bottomSheet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?cmBackground"
+                    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+                    app:layout_constraintTop_toBottomOf="@+id/constraintBody" />
+
+            </LinearLayout>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

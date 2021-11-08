@@ -1,0 +1,537 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        tools:context=".views.fragments.MyTrips">
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbars="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                style="@style/below_action_body"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:elevation="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/action_bar_custom">
+
+                <FrameLayout
+                    android:id="@+id/frame_map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_400sdp"
+                    android:background="@drawable/new_bottom_shape"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/backBtnTDF"
+                    style="@style/fab_style"
+                    android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                    app:elevation="6dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:pressedTranslationZ="12dp"
+                    app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayoutss"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/frame_map"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <LinearLayout
+                        android:id="@+id/firstLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginTop="16dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/corneringIV"
+                                        android:layout_width="@dimen/_24sdp"
+                                        android:layout_height="@dimen/_24sdp"
+                                        android:layout_marginStart="16dp"
+                                        android:background="@drawable/ic_progress_cornering"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/corneringHeaderTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/_4sdp"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:text="@string/cornering"
+                                        android:textSize="@dimen/_8sdp"
+                                        android:textColor="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="@+id/corneringIV"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toEndOf="@+id/corneringIV"
+                                        app:layout_constraintTop_toTopOf="@+id/corneringIV" />
+
+
+                                    <TextView
+                                        android:id="@+id/corneringTV"
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_8sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintStart_toEndOf="@+id/corneringHeaderTV"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/distanceIV"
+                                        android:layout_width="@dimen/_32sdp"
+                                        android:layout_height="@dimen/_24sdp"
+                                        android:layout_marginStart="16dp"
+                                        android:background="@drawable/ic_progress_trip_distance"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/distanceHeaderTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/_4sdp"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:text="@string/distance"
+                                        android:textSize="@dimen/_8sdp"
+                                        android:textColor="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="@+id/distanceIV"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toEndOf="@+id/distanceIV"
+                                        app:layout_constraintTop_toTopOf="@+id/distanceIV" />
+
+
+                                    <TextView
+                                        android:id="@+id/distanceTV"
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_8sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintStart_toEndOf="@+id/distanceHeaderTV"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/secondLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/firstLL"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/brakingIV"
+                                        android:layout_width="@dimen/_24sdp"
+                                        android:layout_height="@dimen/_24sdp"
+                                        android:layout_marginStart="16dp"
+                                        android:background="@drawable/ic_progress_breaking"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/brakingHeaderTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/_4sdp"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:text="@string/braking"
+                                        android:textSize="@dimen/_8sdp"
+                                        android:textColor="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="@+id/brakingIV"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toEndOf="@+id/brakingIV"
+                                        app:layout_constraintTop_toTopOf="@+id/brakingIV" />
+
+
+                                    <TextView
+                                        android:id="@+id/brakingTV"
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_8sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintStart_toEndOf="@+id/brakingHeaderTV"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/acceletationIV"
+                                        android:layout_width="@dimen/_24sdp"
+                                        android:layout_height="@dimen/_24sdp"
+                                        android:layout_marginStart="16dp"
+                                        android:background="@drawable/ic_progress_acceleration"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                    <TextView
+                                        android:id="@+id/acceletationHeaderTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/_4sdp"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:text="@string/acceleration"
+                                        android:textSize="@dimen/_8sdp"
+                                        android:textColor="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="@+id/acceletationIV"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toEndOf="@+id/acceletationIV"
+                                        app:layout_constraintTop_toTopOf="@+id/acceletationIV" />
+
+
+                                    <TextView
+                                        android:id="@+id/acceletationTV"
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:textSize="@dimen/_8sdp"
+                                        android:textColor="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintStart_toEndOf="@+id/acceletationHeaderTV"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/thirdLL"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_48sdp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="@dimen/_8sdp"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/secondLL"
+                        app:layout_constraintVertical_bias="0.0">
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/timeOfDayIV"
+                                        android:layout_width="@dimen/_24sdp"
+                                        android:layout_height="@dimen/_24sdp"
+                                        android:layout_marginStart="16dp"
+                                        android:background="@drawable/ic_time_of_the_day"
+                                        android:backgroundTint="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/timeOfDayHeaderTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/_4sdp"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:text="@string/timeOfDay"
+                                        android:textSize="@dimen/_8sdp"
+                                        android:textColor="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="@+id/timeOfDayIV"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toEndOf="@+id/timeOfDayIV"
+                                        app:layout_constraintTop_toTopOf="@+id/timeOfDayIV" />
+
+
+                                    <TextView
+                                        android:id="@+id/timeOfDayTV"
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:textColor="@color/black"
+                                        android:textSize="@dimen/_8sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintStart_toEndOf="@+id/timeOfDayHeaderTV"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_40sdp"
+                            android:layout_margin="@dimen/_8sdp"
+                            android:layout_weight="1">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+
+                                    <ImageView
+                                        android:id="@+id/speedingIV"
+                                        android:layout_width="@dimen/_24sdp"
+                                        android:layout_height="@dimen/_22sdp"
+                                        android:layout_marginStart="16dp"
+                                        android:background="@drawable/ic_tripspeed"
+                                        android:backgroundTint="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                    <TextView
+                                        android:id="@+id/speedingHeaderTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="0dp"
+                                        android:gravity="center_vertical"
+                                        android:paddingLeft="@dimen/_4sdp"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:text="@string/speeding"
+                                        android:textSize="@dimen/_8sdp"
+                                        android:textColor="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="@+id/speedingIV"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.0"
+                                        app:layout_constraintStart_toEndOf="@+id/speedingIV"
+                                        app:layout_constraintTop_toTopOf="@+id/speedingIV" />
+
+
+                                    <TextView
+                                        android:id="@+id/speedingTV"
+                                        android:layout_width="0dp"
+                                        android:layout_height="0dp"
+                                        android:gravity="right|center_vertical"
+                                        android:paddingRight="@dimen/_4sdp"
+                                        android:textSize="@dimen/_8sdp"
+                                        android:textColor="@color/black"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="1.0"
+                                        app:layout_constraintStart_toEndOf="@+id/speedingHeaderTV"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="tripItem"
+            type="com.jsbl.genix.model.redeem.RedeemCartListItem" />
+
+
+        <variable
+            name="onViewClick"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/_20sdp"
+        android:background="@color/transparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/update_cart"
+            android:layout_width="@dimen/_65sdp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/_5sdp"
+            android:visibility="gone"
+            android:layout_marginEnd="@dimen/_15sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/update_cart_item_count_background">
+
+            <ImageView
+                android:id="@+id/tickImage"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/seperator"
+                app:srcCompat="@drawable/ic_tick" />
+
+            <TextView
+                android:id="@+id/seperator"
+                android:layout_width="@dimen/_1sdp"
+                android:layout_height="match_parent"
+                android:maxLines="1"
+                android:background="@color/gray_shade_e8"
+                android:textColor="?colorOnBackground"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tickImage"
+                app:layout_constraintEnd_toStartOf="@+id/crossImage"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/crossImage"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/seperator"
+                app:srcCompat="@drawable/ic_cross" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cart_item_background"
+            android:paddingStart="@dimen/_15sdp"
+            android:paddingTop="@dimen/_15sdp"
+            android:paddingEnd="@dimen/_15sdp"
+            android:paddingBottom="@dimen/_15sdp"
+            app:layout_constraintTop_toBottomOf="@id/update_cart">
+
+
+            <ImageView
+                android:id="@+id/starting_icon"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                glide="@{tripItem !=null ? tripItem.filePath :0 }" />
+
+
+            <TextView
+                android:id="@+id/startingTV"
+                style="@style/label_tob_mediumX"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:maxLines="1"
+                android:text="@{tripItem.reedeemName}"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/cart_count"
+                app:layout_constraintStart_toEndOf="@id/starting_icon"
+                app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cart_count"
+                android:layout_width="@dimen/_65sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_5sdp"
+                android:background="@drawable/cart_item_count_background"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/startingTV"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/minusImage"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/cart_item_count"
+                    app:srcCompat="@drawable/ic_minus" />
+
+                <TextView
+                    android:id="@+id/cart_item_count"
+                    style="@style/label_tob_mediumX"
+                    android:layout_width="wrap_content"
+                    android:maxLines="1"
+                    android:text="@{String.valueOf(tripItem.reedeemCount)}"
+                    android:textColor="?colorOnBackground"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/minusImage"
+                    app:layout_constraintEnd_toStartOf="@+id/plusImage"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/plusImage"
+                    android:layout_width="@dimen/_20sdp"
+                    android:layout_height="@dimen/_20sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/cart_item_count"
+                    app:srcCompat="@drawable/ic_plus" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/endingTV"
+                style="@style/label_tob_medium"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:maxLines="2"
+                android:textStyle="bold"
+                android:text="@{String.valueOf(tripItem.point + ` Points`)}"
+                android:textColor="@color/gray_shade_69"
+                app:layout_constraintEnd_toEndOf="@id/startingTV"
+                app:layout_constraintStart_toStartOf="@id/startingTV"
+                app:layout_constraintTop_toBottomOf="@id/startingTV" />
+
+            <!-- <View
+                 android:layout_width="match_parent"
+                 android:layout_height="1dp"
+                 android:layout_marginStart="@dimen/_50sdp"
+                 android:layout_marginEnd="@dimen/_50sdp"
+                 android:background="?colorPrimaryVariant"
+                 app:layout_constraintBottom_toBottomOf="parent" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

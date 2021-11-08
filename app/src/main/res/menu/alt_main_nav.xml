@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/profileSettings"
+            android:icon="@drawable/ic_profileicon"
+            android:iconTint="@color/white"
+            android:title="@string/profile_setting" />
+
+        <item
+            android:id="@+id/trips"
+            android:icon="@drawable/new_ic_btn_vector_car_detail_icon"
+            android:iconTint="@color/white"
+            android:title="@string/alt_trips" />
+
+
+        <item
+            android:id="@+id/games"
+            android:icon="@drawable/new_ic_drawer_games"
+            android:iconTint="@color/white"
+            android:title="@string/alt_games" />
+
+
+        <item
+            android:id="@+id/shareWithFriends"
+            android:icon="@drawable/newic_drawer_share"
+            android:iconTint="@color/white"
+            android:title="@string/alt_share_with_friends" />
+
+
+      <!--  <item
+            android:id="@+id/createGroups"
+            android:icon="@drawable/new_ic_drawer_create_group"
+            android:iconTint="@color/white"
+            android:visible="false"
+            android:title="@string/alt_create_groups" />-->
+
+
+        <item
+            android:id="@+id/feedBack"
+            android:icon="@drawable/new_ic_btn_feedback"
+            android:iconTint="@color/white"
+            android:title="@string/alt_feedback" />
+        <item
+            android:id="@+id/help"
+            android:icon="@drawable/ic_baseline_help_outline_24"
+            android:iconTint="@color/white"
+            android:title="@string/help" />
+
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/ic_logout"
+            android:iconTint="@color/white"
+            android:title="@string/logout" />
+
+    </group>
+
+</menu>

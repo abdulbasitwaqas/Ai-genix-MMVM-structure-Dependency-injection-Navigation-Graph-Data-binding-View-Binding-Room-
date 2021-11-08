@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="editSearch" parent="font_cocomat_pro_regular">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <!--<item name="android:background">@drawable/edit_search_background</item>
+        <item name="android:drawableStart">@drawable/ic_gallery_edit_search3</item>-->
+        <item name="android:drawableTint">?attr/colorOnBackground</item>
+        <item name="android:drawablePadding">@dimen/_10sdp</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:elevation">@dimen/_3sdp</item>
+        <item name="android:padding">@dimen/_5sdp</item>
+        <item name="android:textColor">@color/drawable_gray</item>
+        <item name="android:textColorHint">@color/drawable_gray</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
+
+    <style name="myCustomMenuTextAppearance" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/black</item>
+    </style>
+    <style name="CustomFontDialog" parent="Theme.AppCompat.Light.Dialog"></style>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="welcomeBtnIcon"
+            type="android.graphics.drawable.Drawable" />
+
+        <variable
+            name="welcomeBtnText"
+            type="String" />
+
+
+        <variable
+            name="welcomeBtnListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/outerCard"
+        style="@style/card_button_welcome_style"
+        android:onClick="@{(view)->welcomeBtnListener.onClick(view,0)}"
+        app:cardBackgroundColor="@color/black"
+        app:cardCornerRadius="@dimen/welcome_bt_radius"
+        app:cardElevation="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_existing_member"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/innerCard"
+            style="@style/card_button_innerLayer"
+            app:cardCornerRadius="@dimen/welcome_bt_radius"
+            app:cardElevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/innerConstraint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/new_ic_image_button_unselected">
+
+
+                <ImageView
+                    android:id="@+id/btnIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@id/btnText"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:setDrawable="@{welcomeBtnIcon}" />
+
+                <TextView
+                    android:id="@+id/btnText"
+                    style="@style/welcome_btn_large_bold"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text='@{(welcomeBtnText!=null) ? welcomeBtnText:""}'
+                    android:textAlignment="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/btnIcon" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</layout>

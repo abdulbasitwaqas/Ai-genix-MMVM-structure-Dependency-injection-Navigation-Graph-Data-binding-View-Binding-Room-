@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="carDetail"
+            type="com.jsbl.genix.model.profileManagement.PostCarDetail" />
+
+        <variable
+            name="pos"
+            type="Integer" />
+
+
+        <variable
+            name="onViewClick"
+            type="com.jsbl.genix.utils.callBacks.OnItemClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/carItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick='@{(view)->onViewClick.onItemClick(view,pos,carDetail)}'
+        android:paddingStart="@dimen/_8sdp"
+        android:paddingTop="@dimen/_8sdp"
+        android:paddingEnd="@dimen/_8sdp">
+
+
+
+
+
+
+        <ImageView
+            android:id="@+id/starting_icon"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginBottom="@dimen/_15sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/new_ic_btn_vector_car_detail_icon"
+            android:loadCarColor='@{carDetail !=null ? carDetail.CarColorPath : "" }'
+            />
+
+        <ImageView
+            android:id="@+id/checked_icon"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toTopOf="@id/starting_icon"
+            app:layout_constraintStart_toEndOf="@id/starting_icon"
+            app:layout_constraintTop_toTopOf="@id/starting_icon"
+            app:srcCompat="@drawable/new_ic_baseline_check" />
+
+
+        <LinearLayout
+            android:id="@+id/carNameLL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="left|center_vertical"
+            app:layout_constraintEnd_toStartOf="@+id/btnViewCarDetail"
+            app:layout_constraintStart_toEndOf="@id/starting_icon"
+            app:layout_constraintTop_toTopOf="@id/starting_icon">
+            <TextView
+                android:id="@+id/carName"
+                style="@style/label_tob_mediumX"
+                android:layout_width="wrap_content"
+                android:layout_marginStart="16dp"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/_6sdp"
+                android:text='@{(carDetail.registrationNo !=null) ? carDetail.registrationNo:""}'
+                android:textColor="?colorOnBackground"
+                android:textStyle="bold"
+                />
+
+            <ImageView
+                android:id="@+id/brandicon"
+                android:layout_width="24dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/starting_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/starting_icon"
+                app:layout_constraintTop_toBottomOf="@+id/checked_icon"
+                app:layout_constraintVertical_bias="1.0" />
+
+<!--            android:loadManufacturerIcon='@{carDetail !=null ? carDetail.CarManufacturerIcon : "" }'-->
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/registrationNumber"
+            style="@style/label_tob_medium"
+            android:layout_width="0dp"
+            android:maxLines="1"
+            android:layout_marginStart="16dp"
+            android:paddingLeft="@dimen/_6sdp"
+            android:text='@{(carDetail.registrationNo !=null) ? carDetail.registrationYear:""}'
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/starting_icon"
+            app:layout_constraintEnd_toEndOf="@id/carNameLL"
+            app:layout_constraintStart_toStartOf="@id/carNameLL"
+            app:layout_constraintTop_toBottomOf="@id/carNameLL" />
+
+        <Button
+            android:id="@+id/btnViewCarDetail"
+            style="@style/car_item_button"
+            android:onClick='@{(view)->onViewClick.onItemClick(view,pos,carDetail)}'
+            android:text="@string/viewDetails"
+            app:layout_constraintBottom_toBottomOf="@+id/registrationNumber"
+            app:layout_constraintEnd_toStartOf="@+id/btnCarDel"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/carNameLL" />
+
+        <Button
+            android:id="@+id/btnCarDel"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/ic_action_remove"
+            android:backgroundTint="@color/black"
+            android:onClick='@{(view)->onViewClick.onItemClick(view,pos,carDetail)}'
+            app:layout_constraintBottom_toBottomOf="@+id/btnViewCarDetail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btnViewCarDetail" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?colorPrimaryVariant"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="85dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

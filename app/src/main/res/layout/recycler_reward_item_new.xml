@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="reward"
+            type="com.jsbl.genix.trips.TripItem" />
+
+
+        <variable
+            name="onViewClick"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/_4sdp"
+        android:paddingRight="@dimen/_4sdp"
+        >
+
+
+
+
+
+    <androidx.cardview.widget.CardView
+        style="@style/card_trip_item_dashboard2"
+        android:layout_margin="@dimen/_7sdp"
+        app:cardCornerRadius="@dimen/_8sdp"
+        app:cardElevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="@dimen/_4sdp"
+            android:paddingEnd="@dimen/_4sdp"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/addressCL"
+                android:layout_width="@dimen/_180sdp"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/starting_icon"
+                    android:layout_width="@dimen/_15sdp"
+                    android:layout_height="@dimen/_48sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/new_ic_source_line" />
+
+
+                <TextView
+                    android:id="@+id/startingTV"
+                    style="@style/label_tob_smallX"
+                    android:layout_width="@dimen/_160sdp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="@dimen/_3sdp"
+                    android:gravity="left|center_vertical"
+                    android:maxLines="2"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{reward.startingAddress}"
+                    android:textColor="?colorOnBackground"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@id/starting_icon"
+                    app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+
+                <TextView
+                    android:id="@+id/endingTV"
+                    style="@style/label_tob_smallX"
+                    android:layout_width="0dp"
+                    android:layout_marginTop="@dimen/_3sdp"
+                    android:maxLines="2"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{reward.endingAddress}"
+                    android:textColor="@color/gray_shade_69"
+                    app:layout_constraintBottom_toBottomOf="@+id/starting_icon"
+                    app:layout_constraintEnd_toEndOf="@+id/startingTV"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="@+id/startingTV"
+                    app:layout_constraintTop_toBottomOf="@id/startingTV"
+                    app:layout_constraintVertical_bias="1.0" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                app:layout_constraintBottom_toBottomOf="@+id/addressCL"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/addressCL"
+                app:layout_constraintTop_toTopOf="@+id/addressCL">
+
+                <LinearLayout
+                    android:id="@+id/heading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:weightSum="3">
+
+
+                    <TextView
+                        android:id="@+id/time"
+                        style="@style/label_tob_smallX"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Time"
+                        android:textColor="?colorOnBackground"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/distance"
+                        app:layout_constraintStart_toEndOf="@id/starting_icon"
+                        app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+                    <TextView
+                        android:id="@+id/distance"
+                        style="@style/label_tob_smallX"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Distance"
+                        android:textColor="?colorOnBackground"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/score"
+                        app:layout_constraintStart_toEndOf="@id/time"
+                        app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+                    <TextView
+                        android:id="@+id/score"
+                        style="@style/label_tob_smallX"
+                        android:layout_width="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:text="Points"
+                        android:textColor="?colorOnBackground"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/distance"
+                        app:layout_constraintStart_toEndOf="@id/starting_icon"
+                        app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/headingLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?colorOnBackground"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/bodyItem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingBottom="@dimen/_5sdp"
+                    android:weightSum="3">
+
+                    <TextView
+                        android:id="@+id/item_time"
+                        style="@style/label_tob_smallX"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:textColor="@color/gray_shade_69"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/distance"
+                        app:layout_constraintStart_toEndOf="@id/starting_icon"
+                        app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+                    <TextView
+                        android:id="@+id/item_distance"
+                        style="@style/label_tob_smallX"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:textColor="@color/gray_shade_69"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/distance"
+                        app:layout_constraintStart_toEndOf="@id/starting_icon"
+                        app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+                    <TextView
+                        android:id="@+id/item_score"
+                        style="@style/label_tob_smallX"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:textColor="@color/gray_shade_69"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toStartOf="@id/distance"
+                        app:layout_constraintStart_toEndOf="@id/starting_icon"
+                        app:layout_constraintTop_toTopOf="@id/starting_icon" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:background="?colorPrimaryVariant"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>

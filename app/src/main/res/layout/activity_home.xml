@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?cmBackground"
+        tools:context=".views.activities.ActLogin">
+
+        <include
+            android:id="@+id/action_bar_custom"
+            layout="@layout/action_bar_custom" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/ic_login_bg"
+            android:padding="@dimen/_20sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar_custom">
+
+            <TextView
+                android:id="@+id/account_title"
+                style="@style/title_top_largeX"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:text="@string/registration_account_completion"
+                app:layout_constraintEnd_toEndOf="@id/acc_progress"
+                app:layout_constraintStart_toStartOf="@id/acc_progress"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/acc_progress"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/account_title"
+                app:rsb_gravity="top"
+                app:rsb_indicator_background_color="@color/transparent"
+                app:rsb_indicator_drawable="@drawable/ic_baseline_arrow_drop_down_24"
+                app:rsb_indicator_height="wrap_content"
+                app:rsb_indicator_padding_bottom="10dp"
+                app:rsb_indicator_padding_left="15dp"
+                app:rsb_indicator_padding_right="15dp"
+                app:rsb_indicator_padding_top="10dp"
+                app:rsb_indicator_show_mode="alwaysShow"
+                app:rsb_indicator_text_size="12sp"
+                app:rsb_indicator_width="wrap_content"
+                app:rsb_mode="single"
+                app:rsb_progress_default_color="?cmBackground"
+                app:rsb_progress_drawable="@drawable/sb_pg_acc"
+                app:rsb_progress_height="@dimen/_10sdp"
+                app:rsb_thumb_drawable="@drawable/ic_baseline_arrow_drop_down_24" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfile"
+                style="@style/login_profile_im2"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:src="@drawable/ic_login_profile_avatar"
+                app:civ_border_color="?cmBackground"
+                app:civ_border_width="@dimen/profile_im_stroke"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/acc_progress" />
+
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/title_top_largeXX"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/home_name"
+                app:layout_constraintBottom_toTopOf="@id/city"
+                app:layout_constraintStart_toEndOf="@id/ivProfile"
+                app:layout_constraintTop_toTopOf="@id/ivProfile" />
+
+            <TextView
+                android:id="@+id/city"
+                style="@style/label_top_mediumX"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="City"
+                app:layout_constraintBottom_toTopOf="@id/rating"
+                app:layout_constraintStart_toEndOf="@id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@id/name" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/rating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:numStars="5"
+                app:layout_constraintBottom_toBottomOf="@id/ivProfile"
+                app:layout_constraintStart_toEndOf="@id/ivProfile"
+                app:layout_constraintTop_toBottomOf="@id/city" />
+
+
+
+            <com.jaygoo.widget.RangeSeekBar
+                android:id="@+id/total_score_progress"
+                android:layout_width="@dimen/_230sdp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/account_title"
+                app:rsb_gravity="top"
+                app:rsb_indicator_background_color="@color/transparent"
+                app:rsb_indicator_drawable="@drawable/ic_baseline_arrow_drop_down_24"
+                app:rsb_indicator_height="wrap_content"
+                app:rsb_indicator_padding_bottom="10dp"
+                app:rsb_indicator_padding_left="15dp"
+                app:rsb_indicator_padding_right="15dp"
+                app:rsb_indicator_padding_top="10dp"
+                app:rsb_indicator_show_mode="alwaysShow"
+                app:rsb_indicator_text_size="12sp"
+                app:rsb_indicator_width="wrap_content"
+                app:rsb_mode="single"
+                app:rsb_progress_default_color="?cmBackground"
+                app:rsb_progress_drawable="@drawable/sb_pg_acc"
+                app:rsb_progress_height="@dimen/_10sdp"
+                app:rsb_thumb_drawable="@drawable/ic_baseline_arrow_drop_down_24" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

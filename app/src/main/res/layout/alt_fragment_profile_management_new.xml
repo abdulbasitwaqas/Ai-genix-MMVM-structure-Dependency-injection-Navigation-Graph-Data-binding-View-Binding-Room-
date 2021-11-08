@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:splitMotionEvents="false"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+  <!--      <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/back"
+
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp"
+            style="@style/fab_style"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:pointerIcon="cell"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />-->
+
+        <include
+            android:id="@+id/action_bar_custom"
+            layout="@layout/action_bar_custom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:onClickListener="@{onClickListener}"
+            app:titleName="@{@string/personal_details}" />
+
+
+        <ScrollView
+            android:id="@+id/frame"
+            style="@style/below_action_body"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/action_bar_custom">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/bottom_padding">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/topLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:splitMotionEvents="false"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/action_bar_custom"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <include
+                        android:id="@+id/btn_profile_details"
+                        style="@style/card_button_profile_management_style"
+                        layout="@layout/completed_button_points_management"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/btn_car_details"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_chainStyle="packed"
+                        app:welcomeBtnIcon="@{@drawable/new_ic_btn_profile_management_icon}"
+                        app:welcomeBtnListener="@{onClickListener}"
+                        app:welcomeBtnText="@{@string/personal_details}" />
+
+
+                    <include
+                        android:id="@+id/btn_car_details"
+                        style="@style/card_button_profile_management_style"
+                        layout="@layout/completed_button_points_management"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/btn_profile_details"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/btn_profile_details"
+                        app:layout_constraintTop_toTopOf="@id/btn_profile_details"
+                        app:welcomeBtnIcon="@{@drawable/new_ic_btn_vector_car_detail_icon}"
+                        app:welcomeBtnListener="@{onClickListener}"
+                        app:welcomeBtnText="@{@string/car_details}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/midLL"
+                    android:layout_width="match_parent"
+                    android:splitMotionEvents="false"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/topLL"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <include
+                        android:id="@+id/btn_insurance"
+                        style="@style/card_button_profile_management_style"
+                        layout="@layout/completed_button_points_management"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/btn_area_of_interest"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:welcomeBtnIcon="@{@drawable/new_ic_btn_shield_done}"
+                        app:welcomeBtnListener="@{onClickListener}"
+                        app:welcomeBtnText="@{@string/insurance_details}" />
+
+
+                    <include
+                        android:id="@+id/btn_area_of_interest"
+                        style="@style/card_button_profile_management_style"
+                        layout="@layout/completed_button_points_management"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/btn_insurance"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btn_insurance"
+                        app:layout_constraintTop_toTopOf="@+id/btn_insurance"
+                        app:welcomeBtnIcon="@{@drawable/new_ic_btn_paper}"
+                        app:welcomeBtnListener="@{onClickListener}"
+                        app:welcomeBtnText="@{@string/area_details}" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/endLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:splitMotionEvents="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/midLL"
+                    app:layout_constraintVertical_bias="0.0">
+
+
+                    <include
+                        android:id="@+id/btn_feedback"
+                        style="@style/card_button_profile_management_style"
+                        layout="@layout/button_profile_management"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/btn_share_with_friends"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:welcomeBtnIcon="@{@drawable/new_ic_btn_feedback}"
+                        app:welcomeBtnListener="@{onClickListener}"
+                        app:welcomeBtnText="@{@string/feedback_details}" />
+
+                    <include
+                        android:id="@+id/btn_share_with_friends"
+                        style="@style/card_button_profile_management_style"
+                        layout="@layout/button_profile_management"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_20sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/btn_feedback"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/btn_feedback"
+                        app:layout_constraintTop_toTopOf="@+id/btn_feedback"
+                        app:welcomeBtnIcon="@{@drawable/ic_share}"
+                        app:welcomeBtnListener="@{onClickListener}"
+                        app:welcomeBtnText="@{@string/alt_share_with_friends}" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+
+
+
+
+
+
+        <!--<Button
+            android:id="@+id/btnWelcomeContinue"
+            style="@style/login_bt_mediumX"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:text="@string/continue_label"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

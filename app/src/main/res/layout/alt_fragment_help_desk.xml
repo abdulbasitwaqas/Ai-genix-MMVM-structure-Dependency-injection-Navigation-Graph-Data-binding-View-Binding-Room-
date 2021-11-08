@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:paddingBottom="@dimen/bottom_padding"
+        tools:context=".views.fragments.AreaOfInterestFragment">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/back"
+            style="@style/fab_style"
+            android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+            android:pointerIcon="cell"
+            app:elevation="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:pressedTranslationZ="12dp"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+        <!-- <ImageView
+             android:id="@+id/ivLogo"
+             android:layout_width="@dimen/_80sdp"
+             android:layout_height="@dimen/_70sdp"
+             android:src="@drawable/alt_curvelogo"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toTopOf="parent"/>-->
+
+
+        <TextView
+            android:id="@+id/tvLogin"
+            style="@style/login_tob_largeXXX"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_25sdp"
+            android:text="@string/learn_more"
+            android:textAlignment="center"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back" />
+
+        <ScrollView
+            android:id="@+id/scroller"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLogin">
+
+            <LinearLayout
+                android:id="@+id/areaLinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_20sdp"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:useDefaultMargins="true">
+
+                <!-- <include
+                     android:id="@+id/btn_new_customer"
+                     style="@style/card_button_welcome_style_width"
+                     layout="@layout/button_welcome"
+                     app:layout_constraintBottom_toBottomOf="parent"
+                     app:layout_constraintEnd_toStartOf="@id/btn_existing_member"
+                     android:layout_marginStart="@dimen/_20sdp"
+                     android:layout_marginEnd="@dimen/_10sdp"
+                     app:layout_constraintStart_toStartOf="parent"
+                     app:layout_constraintTop_toTopOf="parent"
+                     app:welcomeBtnIcon="@{@drawable/new_ic_create_member}"
+                     app:welcomeBtnListener="@{onClickListener}"
+                     app:welcomeBtnText="@{@string/welcome_new_customer}" />-->
+            </LinearLayout>
+        </ScrollView>
+        <!--
+
+                <Button
+                    android:id="@+id/btnInterestSubmit"
+                    style="@style/login_bt_mediumX"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:drawableEnd="@drawable/ic_login_next_icon"
+                    android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                    android:text="@string/submit"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+        -->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

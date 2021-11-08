@@ -1,0 +1,603 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        tools:context=".views.fragments.ProfileManagement">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mainConstraintCompleteProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_login_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+
+            <!--<ImageView
+                android:id="@+id/ivLogo"
+                android:layout_width="@dimen/_80sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:src="@drawable/alt_curvelogo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />-->
+
+
+
+            <include
+                android:id="@+id/account_progress_layout"
+                layout="@layout/layout_account_completion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent "
+                app:layout_constraintTop_toBottomOf="@id/account_progress_layout">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/bottomConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent "
+                    app:layout_constraintTop_toBottomOf="@id/tvProgressDigits">
+
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/_10sdp">
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/rightGuideLine"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_begin="@dimen/_8sdp" />
+
+
+                            <androidx.constraintlayout.widget.Guideline
+                                android:id="@+id/leftGuideLine"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                app:layout_constraintGuide_end="@dimen/_8sdp" />
+
+
+                            //ProfileConstraint
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/profileConstraint"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintEnd_toEndOf="@id/leftGuideLine"
+                                app:layout_constraintStart_toStartOf="@id/rightGuideLine"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/rectProfileDetails"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_68sdp"
+                                    android:layout_marginStart="@dimen/_65sdp"
+                                    android:layout_marginEnd="@dimen/_30sdp"
+                                    android:background="@drawable/alt_complete_profile_rect"
+                                    android:clickable="true"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:id="@+id/tvProfileDetails"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="4dp"
+                                        android:fontFamily="@font/cocomat_regular"
+                                        android:text="@string/personal_details"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_16sdp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.388"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/tvProfilePoints"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/cocomat_light"
+                                        android:text="@string/car_upto_200_points"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_10sdp"
+                                        app:layout_constraintEnd_toEndOf="@+id/tvProfileDetails"
+                                        app:layout_constraintStart_toStartOf="@+id/tvProfileDetails"
+                                        app:layout_constraintTop_toBottomOf="@+id/tvProfileDetails" />
+
+
+                                    <ImageView
+                                        android:id="@+id/ivProfileArrow"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_10sdp"
+                                        android:layout_marginBottom="@dimen/_10sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/tvProfilePoints"
+                                        app:srcCompat="@drawable/alt_arrow"
+                                        app:tint="@color/dark_cerulean" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/circleProfileDetails"
+                                    android:layout_width="@dimen/_65sdp"
+                                    android:layout_height="@dimen/_65sdp"
+                                    android:layout_marginStart="@dimen/_45sdp"
+                                    android:background="@drawable/alt_complete_profle_circle"
+                                    android:elevation="@dimen/_10sdp"
+                                    app:layout_constraintBottom_toBottomOf="@id/rectProfileDetails"
+                                    app:layout_constraintEnd_toStartOf="@id/rectProfileDetails"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@id/rectProfileDetails">
+
+                                    <ImageView
+                                        android:id="@+id/ivProfile"
+                                        android:layout_width="@dimen/_35sdp"
+                                        android:layout_height="@dimen/_35sdp"
+                                        android:foregroundGravity="center_horizontal"
+                                        app:srcCompat="@drawable/ic_pm_profiledetails"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            //carConstraint
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainCarConstraint"
+                                android:layout_width="0dp"
+
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_25sdp"
+                                app:layout_constraintEnd_toEndOf="@id/leftGuideLine"
+                                app:layout_constraintStart_toStartOf="@id/rightGuideLine"
+                                app:layout_constraintTop_toBottomOf="@id/profileConstraint">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/rectConstCarDetails"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_68sdp"
+                                    android:layout_marginStart="@dimen/_65sdp"
+                                    android:layout_marginEnd="@dimen/_30sdp"
+                                    android:background="@drawable/alt_complete_profile_rect"
+                                    android:clickable="true"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:id="@+id/tvCarDetails"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:fontFamily="@font/cocomat_regular"
+                                        android:text="@string/car_details"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_16sdp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.39"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/tvCarPoints"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/cocomat_light"
+                                        android:text="@string/car_upto_200_points"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_10sdp"
+                                        app:layout_constraintEnd_toEndOf="@+id/tvCarDetails"
+                                        app:layout_constraintStart_toStartOf="@+id/tvCarDetails"
+                                        app:layout_constraintTop_toBottomOf="@+id/tvCarDetails" />
+
+
+                                    <ImageView
+                                        android:id="@+id/ivInsuranceArrow"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_10sdp"
+                                        android:layout_marginBottom="@dimen/_10sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/tvCarPoints"
+                                        app:srcCompat="@drawable/alt_arrow"
+                                        app:tint="@color/dark_cerulean" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/circleConstCarDetails"
+                                    android:layout_width="@dimen/_65sdp"
+                                    android:layout_height="@dimen/_65sdp"
+                                    android:layout_marginStart="@dimen/_45sdp"
+                                    android:background="@drawable/alt_complete_profle_circle"
+                                    android:elevation="@dimen/_10sdp"
+                                    app:layout_constraintBottom_toBottomOf="@id/rectConstCarDetails"
+                                    app:layout_constraintEnd_toStartOf="@id/rectConstCarDetails"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@id/rectConstCarDetails">
+
+                                    <ImageView
+                                        android:id="@+id/ivCar"
+                                        android:layout_width="@dimen/_35sdp"
+                                        android:layout_height="@dimen/_35sdp"
+                                        android:foregroundGravity="center_horizontal"
+                                        android:src="@drawable/alt_cardetails"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            //Insurance
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainInsuranceConstraint"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_25sdp"
+                                app:layout_constraintEnd_toEndOf="@id/leftGuideLine"
+                                app:layout_constraintStart_toStartOf="@id/rightGuideLine"
+                                app:layout_constraintTop_toBottomOf="@id/mainCarConstraint">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/rectConstInsuranceDetails"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_68sdp"
+                                    android:layout_marginStart="@dimen/_65sdp"
+                                    android:layout_marginEnd="@dimen/_30sdp"
+                                    android:background="@drawable/alt_complete_profile_rect"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:id="@+id/tvInsuranceDetails"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:fontFamily="@font/cocomat_regular"
+                                        android:text="@string/insurance_details"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_16sdp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.39"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/tvInsurancePoints"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_4sdp"
+                                        android:fontFamily="@font/cocomat_light"
+                                        android:text="@string/insurance_upto_200_points"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_10sdp"
+                                        app:layout_constraintEnd_toEndOf="@+id/tvInsuranceDetails"
+                                        app:layout_constraintStart_toStartOf="@+id/tvInsuranceDetails"
+                                        app:layout_constraintTop_toBottomOf="@+id/tvInsuranceDetails" />
+
+
+                                    <ImageView
+                                        android:id="@+id/ivArrow"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_10sdp"
+                                        android:layout_marginBottom="@dimen/_10sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/tvInsurancePoints"
+                                        app:srcCompat="@drawable/alt_arrow"
+                                        app:tint="@color/dark_cerulean" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/circleConstInsuranceDetails"
+                                    android:layout_width="@dimen/_65sdp"
+                                    android:layout_height="@dimen/_65sdp"
+                                    android:layout_marginStart="@dimen/_45sdp"
+                                    android:background="@drawable/alt_complete_profle_circle"
+                                    android:elevation="@dimen/_10sdp"
+                                    app:layout_constraintBottom_toBottomOf="@id/rectConstInsuranceDetails"
+                                    app:layout_constraintEnd_toStartOf="@id/rectConstInsuranceDetails"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@id/rectConstInsuranceDetails">
+
+
+                                    <ImageView
+                                        android:id="@+id/ivInsurance"
+                                        android:layout_width="@dimen/_35sdp"
+                                        android:layout_height="@dimen/_35sdp"
+                                        android:foregroundGravity="center_horizontal"
+                                        android:src="@drawable/alt_insurancedetails"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            //AreasofInterest
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainAreaConstraint"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_25sdp"
+                                app:layout_constraintEnd_toEndOf="@id/leftGuideLine"
+                                app:layout_constraintStart_toStartOf="@id/rightGuideLine"
+                                app:layout_constraintTop_toBottomOf="@id/mainInsuranceConstraint">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/rectConstAreaDetails"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_68sdp"
+                                    android:layout_marginStart="@dimen/_65sdp"
+                                    android:layout_marginEnd="@dimen/_30sdp"
+
+                                    android:background="@drawable/alt_complete_profile_rect"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:id="@+id/tvAreaDetails"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:fontFamily="@font/cocomat_regular"
+                                        android:text="@string/area_details"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_16sdp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.58"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/tvAreaPoints"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_40sdp"
+                                        android:fontFamily="@font/cocomat_light"
+                                        android:text="@string/area_upto_200_points"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_10sdp"
+                                        app:layout_constraintEnd_toEndOf="@+id/tvAreaDetails"
+                                        app:layout_constraintStart_toStartOf="@+id/tvAreaDetails"
+                                        app:layout_constraintTop_toBottomOf="@+id/tvAreaDetails" />
+
+
+                                    <ImageView
+                                        android:id="@+id/ivAreaArrow"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_10sdp"
+                                        android:layout_marginBottom="@dimen/_10sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/tvAreaPoints"
+                                        app:srcCompat="@drawable/alt_arrow"
+                                        app:tint="@color/dark_cerulean" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/circleConstAreaDetails"
+                                    android:layout_width="@dimen/_65sdp"
+                                    android:layout_height="@dimen/_65sdp"
+                                    android:layout_marginStart="@dimen/_45sdp"
+                                    android:background="@drawable/alt_complete_profle_circle"
+                                    android:elevation="@dimen/_10sdp"
+                                    app:layout_constraintBottom_toBottomOf="@id/rectConstAreaDetails"
+                                    app:layout_constraintEnd_toStartOf="@id/rectConstAreaDetails"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@id/rectConstAreaDetails">
+
+
+                                    <ImageView
+                                        android:id="@+id/ivAreaInterest"
+                                        android:layout_width="@dimen/_35sdp"
+                                        android:layout_height="@dimen/_35sdp"
+                                        android:foregroundGravity="center_horizontal"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/alt_areaofintersetscr"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            //Feedback
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/mainFeedbackConstraint"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_25sdp"
+                                app:layout_constraintEnd_toEndOf="@id/leftGuideLine"
+                                android:paddingBottom="@dimen/_20sdp"
+                                app:layout_constraintStart_toStartOf="@id/rightGuideLine"
+                                app:layout_constraintTop_toBottomOf="@id/mainAreaConstraint">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/rectConstFeedbackDetails"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_68sdp"
+                                    android:layout_marginStart="@dimen/_65sdp"
+                                    android:layout_marginEnd="@dimen/_30sdp"
+                                    android:background="@drawable/alt_complete_profile_rect"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+
+                                    <TextView
+                                        android:id="@+id/tvFeedbackDetails"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/_10sdp"
+                                        android:fontFamily="@font/cocomat_regular"
+                                        android:text="@string/feedback_details"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_16sdp"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintHorizontal_bias="0.39"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                    <TextView
+                                        android:id="@+id/tvFeedbackPoints"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_5sdp"
+                                        android:fontFamily="@font/cocomat_light"
+                                        android:text="@string/feedback_upto_200_points"
+                                        android:textColor="@color/cerulean"
+                                        android:textSize="@dimen/_10sdp"
+                                        app:layout_constraintEnd_toEndOf="@+id/tvFeedbackDetails"
+                                        app:layout_constraintStart_toStartOf="@+id/tvFeedbackDetails"
+                                        app:layout_constraintTop_toBottomOf="@+id/tvFeedbackDetails" />
+
+
+                                    <ImageView
+                                        android:id="@+id/ivFeedbackArrow"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginEnd="@dimen/_10sdp"
+                                        android:layout_marginBottom="@dimen/_10sdp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/tvFeedbackPoints"
+                                        app:srcCompat="@drawable/alt_arrow"
+                                        app:tint="@color/dark_cerulean" />
+
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/circleConstFeedbackDetails"
+                                    android:layout_width="@dimen/_65sdp"
+                                    android:layout_height="@dimen/_65sdp"
+                                    android:layout_marginStart="@dimen/_45sdp"
+                                    android:background="@drawable/alt_complete_profle_circle"
+                                    android:elevation="@dimen/_10sdp"
+                                    app:layout_constraintBottom_toBottomOf="@id/rectConstFeedbackDetails"
+                                    app:layout_constraintEnd_toStartOf="@id/rectConstFeedbackDetails"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="@id/rectConstFeedbackDetails">
+
+
+                                    <ImageView
+                                        android:id="@+id/ivFeedback"
+                                        android:layout_width="@dimen/_35sdp"
+                                        android:layout_height="@dimen/_35sdp"
+                                        android:foregroundGravity="center_horizontal"
+                                        android:scaleType="fitCenter"
+                                        android:src="@drawable/alt_feebackscr"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    </ScrollView>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </ScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+
+

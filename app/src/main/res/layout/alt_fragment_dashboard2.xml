@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="onClickListener"
+            type="com.jsbl.genix.utils.callBacks.OnViewClickListener" />
+
+        <variable
+            name="customer"
+            type="com.jsbl.genix.model.registration.CustomerX" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/new_dash_back" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/new_ic_dash_back" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintBody"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="176dp">
+
+            <ImageView
+                android:id="@+id/drawerIcon"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                android:padding="@dimen/_10sdp"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_home_drawer_icon" />
+
+
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/circularProgressBar"
+                android:layout_width="@dimen/_240sdp"
+                android:layout_height="@dimen/_240sdp"
+                app:cpb_background_progressbar_color="@color/gray_shade_69"
+                app:cpb_background_progressbar_width="6dp"
+                app:cpb_progress="80"
+                app:cpb_progress_direction="to_right"
+                app:cpb_progress_max="100"
+                app:cpb_progressbar_color="@color/progress_primaryV2"
+                app:cpb_progressbar_width="6dp"
+                app:cpb_round_border="false"
+                app:layout_constraintBottom_toBottomOf="@id/statsContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/ivProfile" />
+
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfile"
+                style="@style/login_profile_im2"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:onClick="@{(view)->onClickListener.onClick(view,0)}"
+                android:profileImage='@{customer !=null ? customer.profileImagePath : "" }'
+                android:src="@drawable/ic_login_profile_avatar"
+                app:civ_border_color="@color/gray_shade_69"
+                app:civ_border_width="@dimen/profile_im_stroke"
+                app:layout_constraintBottom_toTopOf="@+id/name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/title_top_largeXX"
+                android:layout_width="0dp"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:gravity="center"
+                android:maxLines="2"
+                android:text="@string/home_name"
+                app:layout_constraintBottom_toTopOf="@+id/city"
+                app:layout_constraintEnd_toEndOf="@id/circularProgressBar"
+                app:layout_constraintStart_toStartOf="@id/circularProgressBar"
+                app:layout_constraintTop_toBottomOf="@id/ivProfile" />
+
+            <TextView
+                android:id="@+id/city"
+                style="@style/label_top_mediumX"
+                android:layout_marginTop="@dimen/_2sdp"
+                android:text="City"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toTopOf="@+id/statsContainer"
+                app:layout_constraintEnd_toEndOf="@id/name"
+                app:layout_constraintStart_toStartOf="@id/name"
+                app:layout_constraintTop_toBottomOf="@id/name" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/statsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:padding="@dimen/_5sdp"
+                app:layout_constraintBottom_toTopOf="@+id/speedConstraint"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/city">
+
+                <View
+                    android:id="@+id/connectorLine"
+                    android:layout_width="@dimen/_2sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="?colorSecondary"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTotalScoreLabel"
+                    style="@style/label_top_mediumX"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="Total Score"
+                    app:layout_constraintEnd_toStartOf="@id/connectorLine"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTotalScore"
+                    style="@style/title_top_largeX"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:maxLength="6"
+                    android:text="4.9"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/tvTotalScoreLabel"
+                    app:layout_constraintStart_toStartOf="@id/tvTotalScoreLabel"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalScoreLabel" />
+
+                <TextView
+                    android:id="@+id/tvTotalDistanceLabel"
+                    style="@style/label_top_mediumX"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:text="Total Distance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/connectorLine"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tvTotalDistance"
+                    style="@style/title_top_largeX"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:maxLength="8"
+                    android:text="275KM"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/tvTotalDistanceLabel"
+                    app:layout_constraintStart_toStartOf="@id/tvTotalDistanceLabel"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalDistanceLabel" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <include
+                android:id="@+id/speedConstraint"
+                style="@style/dashboard_Constraint_button"
+                layout="@layout/dashboard_detail_layout_on_background"
+                android:layout_marginTop="@dimen/_50sdp"
+                app:detailColor='@{@color/progress_green}'
+                app:detailIcon="@{@drawable/ic_tripspeed}"
+                app:detailTitle='@{@string/dashboard_speed}'
+                app:detailValue='@{"150"}'
+                app:layout_constraintBottom_toTopOf="@id/brakingConstraint"
+                app:layout_constraintEnd_toStartOf="@id/corneringConstraint"
+                app:layout_constraintStart_toStartOf="@id/statsContainer"
+                app:layout_constraintTop_toBottomOf="@id/statsContainer"
+                app:onClickListener='@{onClickListener}' />
+
+
+            <include
+                android:id="@+id/corneringConstraint"
+                style="@style/dashboard_Constraint_button"
+                layout="@layout/dashboard_detail_layout_on_background"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_50sdp"
+                app:detailColor='@{@color/progress_white_83}'
+                app:detailIcon="@{@drawable/ic_dashboardcornering}"
+                app:detailTitle='@{@string/cornering}'
+                app:detailValue='@{"150"}'
+                app:layout_constraintEnd_toEndOf="@id/statsContainer"
+                app:layout_constraintStart_toEndOf="@id/speedConstraint"
+                app:layout_constraintTop_toBottomOf="@id/statsContainer"
+                app:onClickListener='@{onClickListener}' />
+
+
+            <include
+                android:id="@+id/brakingConstraint"
+                style="@style/dashboard_Constraint_button"
+                layout="@layout/dashboard_detail_layout_on_background"
+                app:detailColor='@{@color/progress_red}'
+                app:detailIcon="@{@drawable/ic_dashboardbraking}"
+                app:detailTitle='@{@string/braking}'
+                app:detailValue='@{"150"}'
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/speedConstraint"
+                app:layout_constraintStart_toStartOf="@id/speedConstraint"
+                app:layout_constraintTop_toBottomOf="@id/speedConstraint"
+                app:onClickListener='@{onClickListener}' />
+
+
+            <include
+                android:id="@+id/accelerationConstraint"
+                style="@style/dashboard_Constraint_button"
+                layout="@layout/dashboard_detail_layout_on_background"
+                app:detailColor='@{@color/progress_yellow}'
+                app:detailIcon="@{@drawable/ic_dashbaordacceleration}"
+                app:detailTitle='@{@string/acceleration}'
+                app:detailValue='@{"150"}'
+                app:layout_constraintEnd_toEndOf="@id/corneringConstraint"
+                app:layout_constraintStart_toStartOf="@id/corneringConstraint"
+                app:layout_constraintTop_toBottomOf="@id/corneringConstraint"
+                app:onClickListener='@{onClickListener}' />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

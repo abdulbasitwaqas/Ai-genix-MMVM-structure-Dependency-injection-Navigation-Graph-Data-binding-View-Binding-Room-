@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="editHint"
+            type="String" />
+        <variable
+            name="editPlaceHolder"
+            type="String" />
+        <variable
+            name="text"
+            type="String" />
+        <variable
+            name="editMaxLength"
+            type="Integer" />
+
+
+    </data>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:hint='@{(editHint!=null) ? editHint:""}'
+        android:paddingStart="@dimen/_20sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        app:boxCornerRadiusBottomEnd="@dimen/_50sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_50sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_50sdp"
+        app:boxCornerRadiusTopStart="@dimen/_50sdp"
+        app:errorTextColor="?colorError"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="?colorOnBackground"
+        app:endIconMode="clear_text"
+        app:placeholderText='@{(editPlaceHolder!=null) ? editPlaceHolder:""}'>
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et"
+            style="@style/ti_et_op_mediumX"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:paddingTop="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:text='@{(text!=null) ? text:""}'
+            android:inputType='number'
+
+            android:maxLength='@{(editMaxLength!=null) ?editMaxLength:500}' />
+
+    </com.google.android.material.textfield.TextInputLayout>
+</layout>
